@@ -46,6 +46,10 @@
             android:textColorHint="@android:color/background_light"
             android:textColorLink="@android:color/background_light" />
 
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="10dp" />
+
         <EditText
             android:id="@+id/editText2"
             android:layout_width="wrap_content"
@@ -64,15 +68,19 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_green_dark"
             android:text="Iniciar sesion"
             android:textColor="@android:color/background_light" />
 
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="10dp" />
+
         <Button
             android:id="@+id/button2"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:background="?attr/actionModeSplitBackground"
             android:text="Registrarce"
