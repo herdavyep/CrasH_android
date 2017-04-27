@@ -10,11 +10,21 @@ public class Almacenes {
     private String nombre;
     private String direccion;
     private String telefono;
+    private String ciudad;
 
-    public Almacenes(String nombre, String direccion, String telefono) {
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public Almacenes(String nombre, String direccion, String telefono, String ciudad) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.ciudad = ciudad;
     }
 
     public int getId_almacen() {

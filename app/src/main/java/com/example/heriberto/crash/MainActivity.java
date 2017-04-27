@@ -1,18 +1,12 @@
 package com.example.heriberto.crash;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 
-import com.example.heriberto.crash.Adaptadores.AdapterCrearProductos;
-import com.example.heriberto.crash.clases.Productos;
+import com.example.heriberto.crash.Adaptadores.AdapterVerAlmacenes;
+import com.example.heriberto.crash.clases.Almacenes;
 
 import java.util.ArrayList;
 
@@ -20,10 +14,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crear_producto);
 
-        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerCrearProductos);
+       super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ver_almacenes);
+
+        /*RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerCrearProductos);
 
         mRecyclerView.setHasFixedSize(true);
 
@@ -32,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Productos> mDataset = new ArrayList<>();
 
-        AdapterCrearProductos mAdapter = new AdapterCrearProductos(mDataset);
-        mRecyclerView.setAdapter(mAdapter);
+        AdapterVerAlmacenes mAdapter = new AdapterVerAlmacenes(mDataset);
+        mRecyclerView.setAdapter(mAdapter);*/
 
 
 
