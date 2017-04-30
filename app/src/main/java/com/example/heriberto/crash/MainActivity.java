@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         /*RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerCrearProductos);
 
         mRecyclerView.setHasFixedSize(true);
