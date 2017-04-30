@@ -11,6 +11,7 @@ public class Almacenes {
     private String direccion;
     private String telefono;
     private String ciudad;
+    private int imagenAlmacen;
 
     public String getCiudad() {
         return ciudad;
@@ -20,11 +21,12 @@ public class Almacenes {
         this.ciudad = ciudad;
     }
 
-    public Almacenes(String nombre, String direccion, String telefono, String ciudad) {
+    public Almacenes(String nombre, String direccion, String telefono, String ciudad, int imagenAlmacen) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.ciudad = ciudad;
+        this.imagenAlmacen = imagenAlmacen;
     }
 
     public int getId_almacen() {
@@ -57,5 +59,13 @@ public class Almacenes {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public int getImagenAlmacen() {
+        return imagenAlmacen;
+    }
+
+    public void setImagenAlmacen(int imagenAlmacen) {
+        this.imagenAlmacen = imagenAlmacen;
     }
 }

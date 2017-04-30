@@ -34,14 +34,14 @@ public class verAlmacenes extends AppCompatActivity {
 
 
         ArrayList<Almacenes> myDataset = new ArrayList<>();
-        myDataset.add(new Almacenes("ara","cra 7 # 13 - 111","3146487711","cartago"));
-        myDataset.add(new Almacenes("D1","cra 10 # 13 - 111","3146487661","cartago"));
-        myDataset.add(new Almacenes("Exito","cra 4 # 13 - 111","3146487711","cartago"));
-        myDataset.add(new Almacenes("Super Inter","cra 11 # 13 - 111","3144487711","cartago"));
-        myDataset.add(new Almacenes("Olimpica","cra 9 # 13 - 111","3146487711","cartago"));
-        myDataset.add(new Almacenes("Comfandi","cra 5 # 13 - 111","3146486611","cartago"));
-        myDataset.add(new Almacenes("Colsubsidio","cra 1 # 13 - 111","3146007711","cartago"));
-        myDataset.add(new Almacenes("Metro","cra 7 # 13 - 111","3146487121","cartago"));
+        myDataset.add(new Almacenes("ara","cra 7 # 13 - 111","3146487711","cartago",R.drawable.ara));
+        myDataset.add(new Almacenes("D1","cra 10 # 13 - 111","3146487661","cartago",R.drawable.d1));
+        myDataset.add(new Almacenes("Exito","cra 4 # 13 - 111","3146487711","cartago",R.drawable.exito));
+        myDataset.add(new Almacenes("Super Inter","cra 11 # 13 - 111","3144487711","cartago",R.drawable.superinter));
+        myDataset.add(new Almacenes("Olimpica","cra 9 # 13 - 111","3146487711","cartago",R.drawable.olimpica));
+        myDataset.add(new Almacenes("Comfandi","cra 5 # 13 - 111","3146486611","cartago",R.drawable.comfandi));
+        myDataset.add(new Almacenes("Colsubsidio","cra 1 # 13 - 111","3146007711","cartago",R.drawable.colsubsidio));
+        myDataset.add(new Almacenes("Metro","cra 7 # 13 - 111","3146487121","cartago",R.drawable.metro));
 
         AdapterVerAlmacenes mAdapter = new AdapterVerAlmacenes(myDataset);
         mRecyclerView.setAdapter(mAdapter);

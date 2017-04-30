@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.heriberto.crash.R;
@@ -30,12 +31,14 @@ public class AdapterVerAlmacenes extends RecyclerView.Adapter<AdapterVerAlmacene
         TextView telefonoAlmacen;
         TextView direccionAlmacen;
         TextView ciudadAlmacen;
+        ImageView imagenAlmacen;
         ViewHolder(View v) {
             super(v);
             nombreAlmacen = (TextView) v.findViewById(R.id.nombreAlmacen);
             telefonoAlmacen = (TextView) v.findViewById(R.id.telefonoAlmacen);
             direccionAlmacen = (TextView) v.findViewById(R.id.direccionAlmacen);
             ciudadAlmacen = (TextView) v.findViewById(R.id.ciudadAlmacen);
+            imagenAlmacen = (ImageView) v.findViewById(R.id.imagenAlmacen);
         }
     }
 
@@ -67,6 +70,7 @@ public class AdapterVerAlmacenes extends RecyclerView.Adapter<AdapterVerAlmacene
         holder.telefonoAlmacen.setText(mDataset.get(position).getTelefono());
         holder.direccionAlmacen.setText(mDataset.get(position).getDireccion());
         holder.ciudadAlmacen.setText(mDataset.get(position).getCiudad());
+        holder.imagenAlmacen.setImageResource(mDataset.get(position).getImagenAlmacen());
 
     }
 

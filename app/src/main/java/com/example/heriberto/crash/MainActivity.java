@@ -1,22 +1,42 @@
 package com.example.heriberto.crash;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.heriberto.crash.Adaptadores.AdapterVerAlmacenes;
 import com.example.heriberto.crash.clases.Almacenes;
+import com.example.heriberto.crash.vistas.verAlmacenes;
 
 import java.util.ArrayList;
 
+import static com.example.heriberto.crash.R.layout.activity_main;
+
 public class MainActivity extends AppCompatActivity {
+
+    Button almacenes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-       super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ver_almacenes);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        almacenes = (Button)findViewById(R.id.almacenes);
+        almacenes.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                Intent almacenes = new Intent(MainActivity.this, verAlmacenes.class);
+                startActivity(almacenes);
+            }
+        });
+
 
         /*RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerCrearProductos);
 
