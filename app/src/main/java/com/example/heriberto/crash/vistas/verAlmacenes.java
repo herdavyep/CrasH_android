@@ -1,15 +1,20 @@
 package com.example.heriberto.crash.vistas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.heriberto.crash.Adaptadores.AdapterVerAlmacenes;
+import com.example.heriberto.crash.MainActivity;
 import com.example.heriberto.crash.R;
 import com.example.heriberto.crash.clases.Almacenes;
 
@@ -17,8 +22,13 @@ import java.util.ArrayList;
 
 public class verAlmacenes extends AppCompatActivity {
 
+    Button u;
+   // CardView u;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_almacenes);
 
@@ -45,6 +55,22 @@ public class verAlmacenes extends AppCompatActivity {
 
         AdapterVerAlmacenes mAdapter = new AdapterVerAlmacenes(myDataset);
         mRecyclerView.setAdapter(mAdapter);
+
+
+
+
+        u = (Button) findViewById(R.id.crearProducto);
+        u.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                Intent productos = new Intent(verAlmacenes.this, CrearProductoActivity.class);
+                startActivity(productos);
+            }
+        });
+
+
     }
 
 }

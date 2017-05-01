@@ -12,6 +12,14 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".vistas.CrearProductoActivity"
+            android:label="@string/title_activity_crear_producto"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".vistas.LoginActivity"
+            android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,21 +28,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".vistas.CrearProductoActivity"
-            android:label="@string/title_activity_crear_producto"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".vistas.LoginActivity"
-            android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".vistas.verProductos"
             android:label="@string/title_activity_ver_productos"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".vistas.verAlmacenes"
             android:label="@string/title_activity_ver_almacenes"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".vistas.RegistrarActivity" />
     </application>
 
 </manifest>

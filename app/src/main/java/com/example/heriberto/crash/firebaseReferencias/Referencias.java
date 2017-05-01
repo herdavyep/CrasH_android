@@ -8,6 +8,8 @@ public class Referencias {
 
     final public static String ALMACENES_REFERENCIA = "almacenes";
 
+    final public static String PRODUCTOS_REFERENCIA = "productos";
+
 }
 
 

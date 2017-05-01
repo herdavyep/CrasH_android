@@ -8,18 +8,22 @@ public class Productos {
 
     private int id_producto;
     private String nombre;
-    private float precio;
-    private int vencimiento_oferta;
-    private int productos_disponibles;
+    private String precio;
+    private String vencimiento_oferta;
+    private String productos_disponibles;
     private String presentacion;
     private String porcentaje_descuento;
+    private int imagenProducto;
     private boolean estado;
 
-    public Productos(String nombre, float precio, int productos_disponibles, String presentacion) {
+    public Productos(String nombre, String precio, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento, int imagenProducto) {
         this.nombre = nombre;
         this.precio = precio;
+        this.vencimiento_oferta = vencimiento_oferta;
         this.productos_disponibles = productos_disponibles;
         this.presentacion = presentacion;
+        this.porcentaje_descuento = porcentaje_descuento;
+        this.imagenProducto = imagenProducto;
     }
 
     public int getId_producto() {
@@ -38,27 +42,27 @@ public class Productos {
         this.nombre = nombre;
     }
 
-    public float getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 
-    public int getVencimiento_oferta() {
+    public String getVencimiento_oferta() {
         return vencimiento_oferta;
     }
 
-    public void setVencimiento_oferta(int vencimiento_oferta) {
+    public void setVencimiento_oferta(String vencimiento_oferta) {
         this.vencimiento_oferta = vencimiento_oferta;
     }
 
-    public int getProductos_disponibles() {
+    public String getProductos_disponibles() {
         return productos_disponibles;
     }
 
-    public void setProductos_disponibles(int productos_disponibles) {
+    public void setProductos_disponibles(String productos_disponibles) {
         this.productos_disponibles = productos_disponibles;
     }
 
@@ -76,6 +80,14 @@ public class Productos {
 
     public void setPorcentaje_descuento(String porcentaje_descuento) {
         this.porcentaje_descuento = porcentaje_descuento;
+    }
+
+    public int getImagenProducto() {
+        return imagenProducto;
+    }
+
+    public void setImagenProducto(int imagenProducto) {
+        this.imagenProducto = imagenProducto;
     }
 
     public boolean isEstado() {

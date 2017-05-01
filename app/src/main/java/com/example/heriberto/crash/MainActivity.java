@@ -10,7 +10,9 @@ import android.widget.Button;
 
 import com.example.heriberto.crash.Adaptadores.AdapterVerAlmacenes;
 import com.example.heriberto.crash.clases.Almacenes;
+import com.example.heriberto.crash.vistas.LoginActivity;
 import com.example.heriberto.crash.vistas.verAlmacenes;
+import com.example.heriberto.crash.vistas.verProductos;
 
 import java.util.ArrayList;
 
@@ -18,16 +20,18 @@ import static com.example.heriberto.crash.R.layout.activity_main;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button almacenes;
+    //Button almacenes;
+    Button iniciarSesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
-        almacenes = (Button)findViewById(R.id.almacenes);
-        almacenes.setOnClickListener(new View.OnClickListener(){
+
+        iniciarSesion = (Button)findViewById(R.id.iniciarSesion);
+        iniciarSesion.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
@@ -36,6 +40,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(almacenes);
             }
         });
+
+       /* almacenes = (Button)findViewById(R.id.almacenes);
+        almacenes.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                Intent almacenes = new Intent(MainActivity.this, verAlmacenes.class);
+                startActivity(almacenes);
+            }
+        });*/
 
         /*RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerCrearProductos);
 

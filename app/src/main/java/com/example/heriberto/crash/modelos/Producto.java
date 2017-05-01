@@ -15,6 +15,14 @@ public class Producto {
     private String porcentaje_descuento;
     private boolean estado;
 
+    public Producto(String nombre, float precio, int vencimiento_oferta, int productos_disponibles, String presentacion, String porcentaje_descuento) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.vencimiento_oferta = vencimiento_oferta;
+        this.productos_disponibles = productos_disponibles;
+        this.presentacion = presentacion;
+        this.porcentaje_descuento = porcentaje_descuento;
+    }
 
     public int getId_producto() {
         return id_producto;

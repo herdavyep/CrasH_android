@@ -20,7 +20,7 @@
 
         <android.support.v4.widget.Space
             android:layout_width="0dp"
-            android:layout_height="50dp" />
+            android:layout_height="90dp" />
 
         <TextView
             android:id="@+id/textView"
@@ -33,25 +33,33 @@
 
         <android.support.v4.widget.Space
             android:layout_width="0dp"
-            android:layout_height="50dp" />
+            android:layout_height="55dp" />
 
-        <EditText
-            android:id="@+id/editText"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Nombre de usuario"
-            android:inputType="textPersonName"
-            android:textColorHint="@android:color/background_light"
-            android:textColorLink="@android:color/background_light" />
+            android:gravity="center">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/nombreUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/username"
+                android:inputType="textPersonName"
+                android:textColor="@android:color/background_light"
+                android:textColorHint="@android:color/background_light"
+                android:textColorLink="@android:color/background_light" />
+
+        </android.support.design.widget.TextInputLayout>
+
 
         <android.support.v4.widget.Space
             android:layout_width="0dp"
             android:layout_height="10dp" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/contrasena"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -64,10 +72,10 @@
 
         <android.support.v4.widget.Space
             android:layout_width="0dp"
-            android:layout_height="50dp" />
+            android:layout_height="55dp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/iniciarSesion"
             android:layout_width="129dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/holo_green_dark"
@@ -79,7 +87,7 @@
             android:layout_height="10dp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/registrarse"
             android:layout_width="119dp"
             android:layout_height="wrap_content"
             android:backgroundTint="?attr/actionModeSplitBackground"
