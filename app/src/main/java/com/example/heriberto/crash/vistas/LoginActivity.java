@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         final TextInputEditText edUsusario = (TextInputEditText) findViewById(R.id.nombreUsuario);
-        final EditText edContrasena = (EditText) findViewById(R.id.contrasena);
+        final TextInputEditText edContrasena = (TextInputEditText) findViewById(R.id.contrasena);
 
         firebaseConection = FirebaseAuth.getInstance();
 
@@ -93,11 +93,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 Intent almacenes = new Intent(LoginActivity.this, RegistrarActivity.class);
                 startActivity(almacenes);
-
-
 
             }
         });

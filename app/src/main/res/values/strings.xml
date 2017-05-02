@@ -80,4 +80,6 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="username">Nombre Usuario</string>
+    <string name="registrarse"><u>¿No tienes cuenta? ¡Registrate!</u></string>
+    <string name="inicioSecion">Iniciar Sesion</string>
 </resources>

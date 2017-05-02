@@ -3,5 +3,7 @@
 
 <resources>
     <string name="username">User Name</string>
+    <string name="registrarse">Si no tienes cuenta registrate</string>
+    <string name="inicioSecion">Iniciar Sesion</string>
 
 </resources>

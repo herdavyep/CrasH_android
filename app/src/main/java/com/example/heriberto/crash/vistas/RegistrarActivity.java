@@ -2,6 +2,7 @@ package com.example.heriberto.crash.vistas;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,8 +25,8 @@ public class RegistrarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
 
-        final EditText RegUsusario = (EditText) findViewById(R.id.RegistrarNombreUsuario);
-        final EditText RegContrasena = (EditText) findViewById(R.id.RegistrarContrasena);
+        final TextInputEditText RegUsusario = (TextInputEditText) findViewById(R.id.RegistrarNombreUsuario);
+        final TextInputEditText RegContrasena = (TextInputEditText) findViewById(R.id.RegistrarContrasena);
 
 
         firebaseConection = FirebaseAuth.getInstance();
