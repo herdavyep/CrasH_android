@@ -71,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Contraseña"
+                android:hint="@string/contrasena"
                 android:gravity="center"
                 android:inputType="textPassword"
                 android:textColor="@android:color/background_light"

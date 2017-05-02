@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.heriberto.crash.R;
@@ -89,6 +90,17 @@ public class RegistrarActivity extends AppCompatActivity {
                             }
                         });
 
+            }
+        });
+
+        ImageButton cancel = (ImageButton) findViewById(R.id.cancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent IrLogin = new Intent(RegistrarActivity.this, LoginActivity.class);
+                startActivity(IrLogin);
+                finish();
             }
         });
 

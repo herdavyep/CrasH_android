@@ -75,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                     Intent Iralmacenes = new Intent(LoginActivity.this, verAlmacenes.class);
                                     startActivity(Iralmacenes);
+                                    finish();
 
                                     Toast.makeText(getApplicationContext(),"BIENVENIDO "+usuario,Toast.LENGTH_SHORT).show();
                                     return;
@@ -95,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 Intent almacenes = new Intent(LoginActivity.this, RegistrarActivity.class);
                 startActivity(almacenes);
+                finish();
 
             }
         });

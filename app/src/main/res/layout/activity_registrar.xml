@@ -19,7 +19,7 @@
 
         <android.support.v4.widget.Space
             android:layout_width="0dp"
-            android:layout_height="30dp"
+            android:layout_height="55dp"
             android:backgroundTint="@android:color/holo_red_dark"
             android:backgroundTintMode="src_over" />
 
@@ -38,7 +38,11 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/background_light"
+            android:textColorHint="@android:color/background_light"
+
+            >
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/RegistrarNombreUsuario"
@@ -46,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="Nombre de usuario"
+                android:hint="@string/username"
                 android:inputType="textPersonName"
                 android:textColor="@android:color/background_light"
                 android:textColorHint="@android:color/background_light"
@@ -59,40 +63,60 @@
             android:layout_width="0dp"
             android:layout_height="10dp" />
 
-        <EditText
-            android:id="@+id/RegistrarContrasena"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
             android:textColor="@android:color/background_light"
             android:textColorHint="@android:color/background_light"
-            android:textColorLink="@android:color/background_light" />
+            >
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/RegistrarContrasena"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/contrasena"
+                android:inputType="textPassword"
+                android:textColor="@android:color/background_light"
+                android:textColorHint="@android:color/background_light"
+                android:textColorLink="@android:color/background_light" />
+
+
+        </android.support.design.widget.TextInputLayout>
+
 
         <android.support.v4.widget.Space
             android:layout_width="0dp"
-            android:layout_height="55dp" />
+            android:layout_height="30dp" />
 
-        <Button
-            android:id="@+id/registrarse"
-            android:layout_width="129dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/holo_green_dark"
-            android:text="Registrarse"
-            android:textColor="@android:color/background_light" />
+            android:orientation="horizontal">
 
-        <android.support.v4.widget.Space
-            android:layout_width="0dp"
-            android:layout_height="10dp" />
+            <Button
+                android:id="@+id/registrarse"
+                android:layout_width="119dp"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:backgroundTint="#40956F"
+                android:text="Registrarse"
+                android:textColor="@android:color/background_light" />
 
-        <Button
-            android:id="@+id/cancelar"
-            android:layout_width="119dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/holo_red_dark"
-            android:text="Cancelar"
-            android:textColor="@android:color/background_light" />
+            <android.support.v4.widget.Space
+                android:id="@+id/space3"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorPrimary"
+                app:srcCompat="@drawable/cancelx70" />
+        </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
