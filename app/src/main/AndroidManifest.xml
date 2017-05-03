@@ -35,7 +35,12 @@
             android:name=".vistas.verAlmacenes"
             android:label="@string/title_activity_ver_almacenes"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".vistas.RegistrarActivity" />
+
+        <activity
+            android:name=".vistas.RegistrarActivity"
+            android:label="@string/title_activityRegistrarUser"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +26,8 @@ public class RegistrarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         final TextInputEditText RegUsusario = (TextInputEditText) findViewById(R.id.RegistrarNombreUsuario);
         final TextInputEditText RegContrasena = (TextInputEditText) findViewById(R.id.RegistrarContrasena);
@@ -93,14 +96,12 @@ public class RegistrarActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton cancel = (ImageButton) findViewById(R.id.cancel);
+        Button cancel = (Button) findViewById(R.id.cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent IrLogin = new Intent(RegistrarActivity.this, LoginActivity.class);
-                startActivity(IrLogin);
-                finish();
+                onBackPressed();
             }
         });
 

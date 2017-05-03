@@ -96,7 +96,6 @@ public class LoginActivity extends AppCompatActivity {
 
                 Intent almacenes = new Intent(LoginActivity.this, RegistrarActivity.class);
                 startActivity(almacenes);
-                finish();
 
             }
         });
