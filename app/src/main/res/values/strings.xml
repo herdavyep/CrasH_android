@@ -85,5 +85,6 @@
     <string name="contrasena">Contraseña</string>
     <string name="redesSociales">Ingresar con Redes Sociales</string>
     <string name="conectorO">O</string>
-    <string name="title_activityRegistrarUser">Registrar Usuario</string>
+    <string name="title_activityRegistrarUser">Registro de Usuario</string>
+    <string name="ConfimarContrasena">Confirmar Contraseña</string>
 </resources>

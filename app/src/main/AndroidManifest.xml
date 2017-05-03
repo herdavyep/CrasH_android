@@ -38,8 +38,7 @@
 
         <activity
             android:name=".vistas.RegistrarActivity"
-            android:label="@string/title_activityRegistrarUser"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:label="@string/title_activityRegistrarUser"/>
 
     </application>
 

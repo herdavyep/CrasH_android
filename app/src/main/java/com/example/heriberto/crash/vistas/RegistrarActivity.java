@@ -26,11 +26,10 @@ public class RegistrarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         final TextInputEditText RegUsusario = (TextInputEditText) findViewById(R.id.RegistrarNombreUsuario);
         final TextInputEditText RegContrasena = (TextInputEditText) findViewById(R.id.RegistrarContrasena);
+        final TextInputEditText RegConfContrasena = (TextInputEditText) findViewById(R.id.ConfirmarContrasena);
 
 
         firebaseConection = FirebaseAuth.getInstance();
@@ -45,6 +44,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 final String usuario = RegUsusario.getText().toString().trim();
                 final String contrasena = RegContrasena.getText().toString().trim();
+                final String confirmarContrasena = RegConfContrasena.getText().toString().trim();
 
                 if (usuario.equals("")){
                     Toast.makeText(getApplicationContext(),"el usuario no puede ser vacio",Toast.LENGTH_SHORT).show();
@@ -56,42 +56,50 @@ public class RegistrarActivity extends AppCompatActivity {
                     return;
                 }
 
-                firebaseConection.createUserWithEmailAndPassword(usuario,contrasena)
-                        .addOnCompleteListener(RegistrarActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
 
-                                if (!task.isSuccessful()){
+                if (contrasena.equals(confirmarContrasena)){
 
-                                    Toast.makeText(getApplicationContext(),"ERROR de conexion"+task.getException(),Toast.LENGTH_SHORT).show();
-                                    return;
+                    firebaseConection.createUserWithEmailAndPassword(usuario,contrasena)
+                            .addOnCompleteListener(RegistrarActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
 
-                                }else {
+                                    if (!task.isSuccessful()){
 
-                                    firebaseConection.signInWithEmailAndPassword(usuario,contrasena)
-                                            .addOnCompleteListener(RegistrarActivity.this, new OnCompleteListener<AuthResult>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                        Toast.makeText(getApplicationContext(),"ERROR de conexion"+task.getException(),Toast.LENGTH_SHORT).show();
+                                        return;
 
+                                    }else {
 
-                                                    if (!task.isSuccessful()){
-
-                                                        Toast.makeText(getApplicationContext(),"ERROR de conexion"+task.getException(),Toast.LENGTH_SHORT).show();
-                                                        return;
-
-                                                    }else {
+                                        firebaseConection.signInWithEmailAndPassword(usuario,contrasena)
+                                                .addOnCompleteListener(RegistrarActivity.this, new OnCompleteListener<AuthResult>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<AuthResult> task) {
 
 
-                                                        Intent IrAlmacenes = new Intent(RegistrarActivity.this, verAlmacenes.class);
-                                                        startActivity(IrAlmacenes);
-                                                        Toast.makeText(getApplicationContext(),"Registro Exitoso!!!  BIENVENIDO "+usuario,Toast.LENGTH_SHORT).show();
-                                                        return;
+                                                        if (!task.isSuccessful()){
+
+                                                            Toast.makeText(getApplicationContext(),"ERROR de conexion"+task.getException(),Toast.LENGTH_SHORT).show();
+                                                            return;
+
+                                                        }else {
+
+
+                                                            Intent IrAlmacenes = new Intent(RegistrarActivity.this, verAlmacenes.class);
+                                                            startActivity(IrAlmacenes);
+                                                            Toast.makeText(getApplicationContext(),"Registro Exitoso!!!  BIENVENIDO "+usuario,Toast.LENGTH_SHORT).show();
+                                                            return;
+                                                        }
                                                     }
-                                                }
-                                            });
+                                                });
+                                    }
                                 }
-                            }
-                        });
+                            });
+                }else {
+
+                    Toast.makeText(getApplicationContext(),"Las contraseñas no son iguales",Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
             }
         });

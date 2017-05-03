@@ -9,5 +9,6 @@
     <string name="redesSociales">Ingresar con Redes Sociales</string>
     <string name="conectorO">O</string>
     <string name="title_activityRegistrarUser">RegistrarUser</string>
+    <string name="ConfimarContrasena">Confirmar Contraseña</string>
 
 </resources>
