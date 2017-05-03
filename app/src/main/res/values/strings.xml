@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CrasH</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_login">CrasH</string>
+    <string name="title_activity_login">Cra$H</string>
     <string name="title_activity_crear_producto">CrearProductoActivity</string>
     <string name="title_activity_ver_productos">verProductos</string>
     <string name="title_activity_ver_almacenes">verAlmacenes</string>
