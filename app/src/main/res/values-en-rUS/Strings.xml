@@ -10,5 +10,8 @@
     <string name="conectorO">O</string>
     <string name="title_activityRegistrarUser">RegistrarUser</string>
     <string name="ConfimarContrasena">Confirmar Contraseña</string>
+    <string name="EditarProducto">Editar Producto</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="registrarsePalabra">Registrarse</string>
 
 </resources>

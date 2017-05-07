@@ -2,6 +2,7 @@ package com.example.heriberto.crash.vistas;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,33 +10,37 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.heriberto.crash.Adaptadores.AdapterVerAlmacenes;
 import com.example.heriberto.crash.MainActivity;
 import com.example.heriberto.crash.R;
 import com.example.heriberto.crash.clases.Almacenes;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 public class verAlmacenes extends AppCompatActivity {
 
     Button u;
-   // CardView u;
+    Button a;
+    Button e;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_almacenes);
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerVerAlmacenes);
 
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
 
         // use a linear layout manager
@@ -56,6 +61,10 @@ public class verAlmacenes extends AppCompatActivity {
         AdapterVerAlmacenes mAdapter = new AdapterVerAlmacenes(myDataset);
         mRecyclerView.setAdapter(mAdapter);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        TextView usuario = (TextView) findViewById(R.id.user);
+
+        usuario.setText("hola "+ user.getEmail());
 
 
 
@@ -65,12 +74,46 @@ public class verAlmacenes extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent productos = new Intent(verAlmacenes.this, CrearProductoActivity.class);
+                Intent productos = new Intent(verAlmacenes.this, VistaAdminActivity.class);
                 startActivity(productos);
             }
         });
 
+        /*a = (Button) findViewById(R.id.CerrarSesion);
+        a.setOnClickListener(new View.OnClickListener(){
 
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext()," Sesion Terminada",Toast.LENGTH_SHORT).show();
+                FirebaseAuth.getInstance().signOut();
+                //Log.d("chad");
+                Intent IrLogin = new Intent(verAlmacenes.this, LoginActivity.class);
+                startActivity(IrLogin);
+                finish();
+            }
+        });*/
+
+        e = (Button) findViewById(R.id.IrProductos);
+        e.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                Intent productos = new Intent(verAlmacenes.this, verProductos.class);
+                startActivity(productos);
+            }
+        });
+
+    }
+
+    public void cerrarSesion(View view){
+
+        FirebaseAuth.getInstance().signOut();
+        Toast.makeText(getApplicationContext(),"Sesion Terminada",Toast.LENGTH_SHORT).show();
+        Intent IrLogin = new Intent(verAlmacenes.this, LoginActivity.class);
+        startActivity(IrLogin);
+        finish();
     }
 
 }

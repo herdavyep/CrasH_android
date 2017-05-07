@@ -1,26 +1,30 @@
 package com.example.heriberto.crash.vistas;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.example.heriberto.crash.Adaptadores.AdapterAdminProductos;
 import com.example.heriberto.crash.Adaptadores.AdapterVerProductos;
 import com.example.heriberto.crash.R;
 import com.example.heriberto.crash.clases.Productos;
 
 import java.util.ArrayList;
 
-public class verProductos extends AppCompatActivity {
+public class ProductosAdminActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ver_productos);
+        setContentView(R.layout.activity_productos_admin);
 
-        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerVerProductos);
+        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerAdminVerProductos);
 
         mRecyclerView.setHasFixedSize(true);
 
@@ -37,16 +41,29 @@ public class verProductos extends AppCompatActivity {
         myDataset.add(new Productos("Lentejas","2000","11","23","500g","45",R.drawable.lentejas));
         myDataset.add(new Productos("Panela","2000","11","23","Atao","45",R.drawable.panela));
 
-        AdapterVerProductos mAdapter = new AdapterVerProductos(myDataset);
+        AdapterAdminProductos mAdapter = new AdapterAdminProductos(myDataset);
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    public void atrasP_A(View view){
+    public void VolverP_A(View view){
 
-        onBackPressed();
+        Intent admin = new Intent(ProductosAdminActivity.this, VistaAdminActivity.class);
+        startActivity(admin);
+        finish();
     }
 
+    public void crearProducto (View view){
+
+        Intent C_P = new Intent(ProductosAdminActivity.this, CrearProductoActivity.class);
+        startActivity(C_P);
+        finish();
+    }
+
+    public void editarProducto (View view){
+
+        Intent E_P = new Intent(ProductosAdminActivity.this, EditarProductoActivity.class);
+        startActivity(E_P);
+        finish();
+    }
 
 }
-
-

@@ -87,4 +87,10 @@
     <string name="conectorO">O</string>
     <string name="title_activityRegistrarUser">Registro de Usuario</string>
     <string name="ConfimarContrasena">Confirmar Contraseña</string>
+    <string name="EditarProducto">Editar Producto</string>
+    <string name="title_activity_editar_producto">EditarProductoActivity</string>
+    <string name="title_activity_vista_admin">VistaAdminActivity</string>
+    <string name="title_activity_productos_admin">ProductosAdminActivity</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="registrarsePalabra">Registrarse</string>
 </resources>

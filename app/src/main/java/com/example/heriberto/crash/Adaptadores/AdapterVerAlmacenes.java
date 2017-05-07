@@ -19,14 +19,9 @@ import java.util.ArrayList;
 public class AdapterVerAlmacenes extends RecyclerView.Adapter<AdapterVerAlmacenes.ViewHolder> {
     private ArrayList<Almacenes> mDataset;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
-    // Proporciona una referencia a las vistas de cada elemento de datos
-    // Los elementos de datos complejos pueden necesitar más de una vista por elemento y
-    // proporciona acceso a todas las vistas de un elemento de datos en un titular de vista
+
     static class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
+
         TextView nombreAlmacen;
         TextView telefonoAlmacen;
         TextView direccionAlmacen;
@@ -48,24 +43,20 @@ public class AdapterVerAlmacenes extends RecyclerView.Adapter<AdapterVerAlmacene
         mDataset = myDataset;
     }
 
-    // Create new views (invoked by the layout manager)
     @Override
     public AdapterVerAlmacenes.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                    int viewType) {
-        // create a new view
+
         View v = (View) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.content_ver_almacenes, parent, false);
-        // set the view's size, margins, paddings and layout parameters
 
 
         return new ViewHolder(v);
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
+
         holder.nombreAlmacen.setText(mDataset.get(position).getNombre());
         holder.telefonoAlmacen.setText(mDataset.get(position).getTelefono());
         holder.direccionAlmacen.setText(mDataset.get(position).getDireccion());
@@ -74,7 +65,6 @@ public class AdapterVerAlmacenes extends RecyclerView.Adapter<AdapterVerAlmacene
 
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
 

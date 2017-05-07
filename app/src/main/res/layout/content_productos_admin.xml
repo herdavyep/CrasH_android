@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cardView2"
+    android:id="@+id/cardView3"
     android:layout_width="match_parent"
-    android:layout_height="145dp"
+    android:layout_height="185dp"
     android:layout_margin="3dp">
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:layout_weight="1.8">
 
             <ImageView
-                android:id="@+id/imagenVerProducto"
+                android:id="@+id/imagenAdminProducto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"/>
@@ -29,34 +29,37 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.7"
-            android:layout_gravity="center"
             android:orientation="vertical"
             android:layout_margin="3dp">
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
             <TextView
-                android:id="@+id/nombreVerProducto"
+                android:id="@+id/nombreAdminProducto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textStyle="bold" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
 
             <TextView
-                android:id="@+id/presentacionVerProducto"
+                android:id="@+id/presentacionAdminProducto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                android:textStyle="bold"/>
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
 
             <TextView
-                android:id="@+id/precioVerProducto"
+                android:id="@+id/precioAdminProducto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
@@ -67,11 +70,14 @@
                 android:layout_height="5dp" />
 
             <TextView
-                android:id="@+id/vencimientoVerOferta"
+                android:id="@+id/vencimientoAdminOferta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
                 android:textStyle="italic" />
+
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -79,11 +85,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.3"
             android:gravity="right"
-            android:layout_gravity="center"
             android:orientation="vertical">
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
             <TextView
-                android:id="@+id/productosVerDisponibles"
+                android:id="@+id/productosAdminDisponibles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
@@ -95,7 +104,7 @@
                 android:layout_height="0dp" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/textView7"
                 android:layout_width="84dp"
                 android:layout_height="wrap_content"
                 android:gravity="right"
@@ -106,7 +115,7 @@
                 android:layout_height="10dp" />
 
             <TextView
-                android:id="@+id/porcentajeVerDescuento"
+                android:id="@+id/porcentajeAdminDescuento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
@@ -114,6 +123,34 @@
                 android:textColor="@android:color/holo_orange_dark"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="45dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    app:srcCompat="@android:drawable/ic_menu_edit"
+                    android:onClick="editarProducto"/>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    app:srcCompat="@android:drawable/ic_menu_delete" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>

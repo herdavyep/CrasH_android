@@ -10,20 +10,20 @@ import android.view.View;
 
 import com.example.heriberto.crash.R;
 
-public class CrearProductoActivity extends AppCompatActivity {
+public class EditarProductoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crear_producto);
-
+        setContentView(R.layout.activity_editar_producto);
 
     }
 
-    public void cerrarCrearProducto (View view){
+    public void cerrarEditarProducto (View view){
 
-        Intent C_P = new Intent(CrearProductoActivity.this, ProductosAdminActivity.class);
-        startActivity(C_P);
+        Intent admin = new Intent(EditarProductoActivity.this, VistaAdminActivity.class);
+        startActivity(admin);
         finish();
     }
+
 }

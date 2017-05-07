@@ -13,6 +13,8 @@ import com.example.heriberto.crash.clases.Almacenes;
 import com.example.heriberto.crash.vistas.LoginActivity;
 import com.example.heriberto.crash.vistas.verAlmacenes;
 import com.example.heriberto.crash.vistas.verProductos;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -21,16 +23,31 @@ import static com.example.heriberto.crash.R.layout.activity_main;
 public class MainActivity extends AppCompatActivity {
 
     //Button almacenes;
-    Button iniciarSesion;
+   // Button iniciarSesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_main);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        iniciarSesion = (Button)findViewById(R.id.iniciarSesion);
+        if (user != null){
+
+            Intent almacenes = new Intent(MainActivity.this, verAlmacenes.class);
+            startActivity(almacenes);
+            finish();
+
+        }else {
+
+            Intent login = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(login);
+            finish();
+
+        }
+
+        /*iniciarSesion = (Button)findViewById(R.id.iniciarSesion);
         iniciarSesion.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -39,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent almacenes = new Intent(MainActivity.this, verAlmacenes.class);
                 startActivity(almacenes);
             }
-        });
+        });*/
 
        /* almacenes = (Button)findViewById(R.id.almacenes);
         almacenes.setOnClickListener(new View.OnClickListener(){

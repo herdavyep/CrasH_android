@@ -13,10 +13,10 @@ import com.example.heriberto.crash.clases.Productos;
 import java.util.ArrayList;
 
 /**
- * Created by heriberto on 30/04/17.
+ * Created by heriberto on 6/05/17.
  */
 
-public class AdapterVerProductos extends RecyclerView.Adapter<AdapterVerProductos.ViewHolder> {
+public class AdapterAdminProductos extends RecyclerView.Adapter<AdapterAdminProductos.ViewHolder> {
     private ArrayList<Productos> mmDataset;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -32,38 +32,35 @@ public class AdapterVerProductos extends RecyclerView.Adapter<AdapterVerProducto
         ViewHolder(View v) {
             super(v);
 
-            nombreProducto = (TextView) v.findViewById(R.id.nombreVerProducto);
-            presentacion = (TextView) v.findViewById(R.id.presentacionVerProducto);
-            precio = (TextView) v.findViewById(R.id.precioVerProducto);
-            vencimientoOferta = (TextView) v.findViewById(R.id.vencimientoVerOferta);
-            productosDisponibles = (TextView) v.findViewById(R.id.productosVerDisponibles);
-            porcentajeDescuento = (TextView) v.findViewById(R.id.porcentajeVerDescuento);
-            imagenProducto = (ImageView) v.findViewById(R.id.imagenVerProducto);
+            nombreProducto = (TextView) v.findViewById(R.id.nombreAdminProducto);
+            presentacion = (TextView) v.findViewById(R.id.presentacionAdminProducto);
+            precio = (TextView) v.findViewById(R.id.precioAdminProducto);
+            vencimientoOferta = (TextView) v.findViewById(R.id.vencimientoAdminOferta);
+            productosDisponibles = (TextView) v.findViewById(R.id.productosAdminDisponibles);
+            porcentajeDescuento = (TextView) v.findViewById(R.id.porcentajeAdminDescuento);
+            imagenProducto = (ImageView) v.findViewById(R.id.imagenAdminProducto);
         }
     }
 
-    public AdapterVerProductos(ArrayList<Productos> mmyDataset) {
+    public AdapterAdminProductos(ArrayList<Productos> mmyDataset) {
 
         mmDataset = mmyDataset;
     }
 
     @Override
-    public AdapterVerProductos.ViewHolder onCreateViewHolder(ViewGroup parent,
+    public AdapterAdminProductos.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                              int viewType) {
-        // create a new view
+
         View v = (View) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.content_ver_productos, parent, false);
-        // set the view's size, margins, paddings and layout parameters
+                .inflate(R.layout.content_productos_admin, parent, false);
 
 
-        return new ViewHolder(v);
+        return new AdapterAdminProductos.ViewHolder(v);
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(AdapterVerProductos.ViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
+    public void onBindViewHolder(AdapterAdminProductos.ViewHolder holder, int position) {
+
         holder.nombreProducto.setText(mmDataset.get(position).getNombre());
         holder.presentacion.setText(mmDataset.get(position).getPresentacion());
         holder.precio.setText (mmDataset.get(position).getPrecio()+" pesos");
@@ -74,11 +71,11 @@ public class AdapterVerProductos extends RecyclerView.Adapter<AdapterVerProducto
 
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
 
         return mmDataset.size();
     }
-}
 
+
+}
