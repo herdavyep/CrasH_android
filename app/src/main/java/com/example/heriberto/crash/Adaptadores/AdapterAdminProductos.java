@@ -63,7 +63,7 @@ public class AdapterAdminProductos extends RecyclerView.Adapter<AdapterAdminProd
 
         holder.nombreProducto.setText(mmDataset.get(position).getNombre());
         holder.presentacion.setText(mmDataset.get(position).getPresentacion());
-        holder.precio.setText (mmDataset.get(position).getPrecio()+" pesos");
+        holder.precio.setText (mmDataset.get(position).getPrecio2()+" pesos");
         holder.vencimientoOferta.setText("Oferta vence en: "+mmDataset.get(position).getVencimiento_oferta()+" dias");
         holder.productosDisponibles.setText(mmDataset.get(position).getProductos_disponibles());
         holder.porcentajeDescuento.setText(mmDataset.get(position).getPorcentaje_descuento()+"%");

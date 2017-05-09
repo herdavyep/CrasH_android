@@ -16,9 +16,12 @@ import android.widget.Toast;
 import com.example.heriberto.crash.MainActivity;
 import com.example.heriberto.crash.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
@@ -67,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 if (!task.isSuccessful()){
 
-                                    Toast.makeText(getApplicationContext(),"ERROR de conexion"+task.getException(),Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(),"ERROR de conexion",Toast.LENGTH_SHORT).show();
                                     return;
 
                                 }else {
@@ -82,7 +85,25 @@ public class LoginActivity extends AppCompatActivity {
 
                                 }
                             }
-                        });
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        if (e instanceof FirebaseAuthInvalidCredentialsException){
+
+                            Toast.makeText(getApplicationContext(),"Contraseña Incorrecta ",Toast.LENGTH_SHORT).show();
+
+                        }else if (e instanceof FirebaseAuthInvalidUserException){
+
+                            Toast.makeText(getApplicationContext(),"Usuario Incorrecto ",Toast.LENGTH_SHORT).show();
+
+                        }else {
+
+                            Toast.makeText(getApplicationContext(), e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
             }
         });
 

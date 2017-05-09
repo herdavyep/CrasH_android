@@ -23,14 +23,12 @@ public class VistaAdminActivity extends AppCompatActivity {
 
         Intent AdP = new Intent(VistaAdminActivity.this, ProductosAdminActivity.class);
         startActivity(AdP);
-        finish();
     }
 
     public void IrAdminCategorias(View view){
 
         Intent AdC = new Intent(VistaAdminActivity.this, CategoriasAdminActivity.class);
         startActivity(AdC);
-        finish();
 
     }
 
@@ -38,7 +36,6 @@ public class VistaAdminActivity extends AppCompatActivity {
 
         Intent AdU = new Intent(VistaAdminActivity.this, UsuariosAdminActivity.class);
         startActivity(AdU);
-        finish();
 
     }
 
@@ -46,7 +43,6 @@ public class VistaAdminActivity extends AppCompatActivity {
 
         Intent AdA = new Intent(VistaAdminActivity.this, AlmacenesAdminActivity.class);
         startActivity(AdA);
-        finish();
     }
 
 }

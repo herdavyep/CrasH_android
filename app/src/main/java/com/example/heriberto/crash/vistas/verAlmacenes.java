@@ -21,8 +21,15 @@ import com.example.heriberto.crash.Adaptadores.AdapterVerAlmacenes;
 import com.example.heriberto.crash.MainActivity;
 import com.example.heriberto.crash.R;
 import com.example.heriberto.crash.clases.Almacenes;
+import com.example.heriberto.crash.firebaseReferencias.Referencias;
+import com.example.heriberto.crash.modelos.Almacen;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
@@ -33,6 +40,7 @@ public class verAlmacenes extends AppCompatActivity {
     Button u;
     Button a;
     Button e;
+    ArrayList<Almacenes> myDataset = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -48,7 +56,7 @@ public class verAlmacenes extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
 
-        ArrayList<Almacenes> myDataset = new ArrayList<>();
+
         myDataset.add(new Almacenes("ara","cra 7 # 13 - 111","3146487711","cartago",R.drawable.ara));
         myDataset.add(new Almacenes("D1","cra 10 # 13 - 111","3146487661","cartago",R.drawable.d1));
         myDataset.add(new Almacenes("Exito","cra 4 # 13 - 111","3146487711","cartago",R.drawable.exito));
@@ -64,7 +72,8 @@ public class verAlmacenes extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         TextView usuario = (TextView) findViewById(R.id.user);
 
-        usuario.setText("hola "+ user.getEmail());
+        usuario.setText("hola "+ user.getUid());
+
 
 
 
@@ -105,6 +114,31 @@ public class verAlmacenes extends AppCompatActivity {
             }
         });
 
+        /*FirebaseDatabase myDataBase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = myDataBase.getReference(Referencias.TUTORIAL_REFERENCE);
+
+        myRef.push().setValue(1);
+        // tambien puede ser este si solo quiero cojer el valor una vez addListenerForSingleValueEvent
+        ValueEventListener valueEventListener = new ValueEventListener(){
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                int valor = dataSnapshot.getValue(Integer.class);
+
+                Log.e("DATOS", valor+"");
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+                Log.e("ERROR", databaseError.getMessage());
+
+            }
+        };
+
+        myRef.addValueEventListener(valueEventListener);*/
     }
 
     public void cerrarSesion(View view){
@@ -114,6 +148,12 @@ public class verAlmacenes extends AppCompatActivity {
         Intent IrLogin = new Intent(verAlmacenes.this, LoginActivity.class);
         startActivity(IrLogin);
         finish();
+    }
+
+    public void IrProductos (View view){
+
+        Intent IrLogin = new Intent(verAlmacenes.this, verProductos.class);
+        startActivity(IrLogin);
     }
 
 }

@@ -8,22 +8,56 @@ public class Productos {
 
     private int id_producto;
     private String nombre;
-    private String precio;
+    //private String precio;
     private String vencimiento_oferta;
     private String productos_disponibles;
     private String presentacion;
     private String porcentaje_descuento;
     private int imagenProducto;
+    private int precio2;
     private boolean estado;
 
-    public Productos(String nombre, String precio, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento, int imagenProducto) {
+
+
+    public Productos() {
+    }
+
+    public Productos(String nombre, int precio, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento, int imagenProducto) {
         this.nombre = nombre;
-        this.precio = precio;
+        this.precio2 = precio;
         this.vencimiento_oferta = vencimiento_oferta;
         this.productos_disponibles = productos_disponibles;
         this.presentacion = presentacion;
         this.porcentaje_descuento = porcentaje_descuento;
         this.imagenProducto = imagenProducto;
+    }
+
+    public Productos(String nombre, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento, int imagenProducto, int precio2) {
+        this.nombre = nombre;
+        this.vencimiento_oferta = vencimiento_oferta;
+        this.productos_disponibles = productos_disponibles;
+        this.presentacion = presentacion;
+        this.porcentaje_descuento = porcentaje_descuento;
+        this.imagenProducto = imagenProducto;
+        this.precio2 = precio2;
+    }
+
+    public Productos(String nombre, int precio, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento) {
+        this.nombre = nombre;
+        this.precio2 = precio;
+        this.vencimiento_oferta = vencimiento_oferta;
+        this.productos_disponibles = productos_disponibles;
+        this.presentacion = presentacion;
+        this.porcentaje_descuento = porcentaje_descuento;
+    }
+
+
+    public int getPrecio2() {
+        return precio2;
+    }
+
+    public void setPrecio2(int precio2) {
+        this.precio2 = precio2;
     }
 
     public int getId_producto() {
@@ -42,13 +76,13 @@ public class Productos {
         this.nombre = nombre;
     }
 
-    public String getPrecio() {
+    /*public String getPrecio() {
         return precio;
     }
 
     public void setPrecio(String precio) {
         this.precio = precio;
-    }
+    }*/
 
     public String getVencimiento_oferta() {
         return vencimiento_oferta;
@@ -97,4 +131,6 @@ public class Productos {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
+
 }

@@ -5,16 +5,20 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.heriberto.crash.Adaptadores.AdapterVerAlmacenes;
 import com.example.heriberto.crash.clases.Almacenes;
+import com.example.heriberto.crash.firebaseReferencias.Referencias;
 import com.example.heriberto.crash.vistas.LoginActivity;
 import com.example.heriberto.crash.vistas.verAlmacenes;
 import com.example.heriberto.crash.vistas.verProductos;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -46,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
             finish();
 
         }
+
+
+    }
+
+}
 
         /*iniciarSesion = (Button)findViewById(R.id.iniciarSesion);
         iniciarSesion.setOnClickListener(new View.OnClickListener(){
@@ -116,6 +125,3 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);*/
-    }
-
-}

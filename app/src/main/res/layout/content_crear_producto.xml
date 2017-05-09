@@ -73,7 +73,7 @@
                     android:ems="10"
                     android:layout_weight="1"
                     android:hint="Precio"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:theme="@style/EditText"/>
             </android.support.design.widget.TextInputLayout>
 
@@ -183,6 +183,5 @@
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>
 

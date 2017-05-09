@@ -41,6 +41,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:layout_weight=".7"
+                android:onClick="CrearProducto"
                 android:background="@color/colorPrimary"
                 app:srcCompat="@android:drawable/ic_menu_save" />
         </LinearLayout>

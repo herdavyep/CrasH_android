@@ -44,7 +44,7 @@ public class AdapterVerProductos extends RecyclerView.Adapter<AdapterVerProducto
 
     public AdapterVerProductos(ArrayList<Productos> mmyDataset) {
 
-        mmDataset = mmyDataset;
+        this.mmDataset = mmyDataset;
     }
 
     @Override
@@ -59,14 +59,12 @@ public class AdapterVerProductos extends RecyclerView.Adapter<AdapterVerProducto
         return new ViewHolder(v);
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(AdapterVerProductos.ViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
+
         holder.nombreProducto.setText(mmDataset.get(position).getNombre());
         holder.presentacion.setText(mmDataset.get(position).getPresentacion());
-        holder.precio.setText (mmDataset.get(position).getPrecio()+" pesos");
+        holder.precio.setText (mmDataset.get(position).getPrecio2()+" pesos");
         holder.vencimientoOferta.setText("Oferta vence en: "+mmDataset.get(position).getVencimiento_oferta()+" dias");
         holder.productosDisponibles.setText(mmDataset.get(position).getProductos_disponibles());
         holder.porcentajeDescuento.setText(mmDataset.get(position).getPorcentaje_descuento()+"%");
@@ -74,7 +72,6 @@ public class AdapterVerProductos extends RecyclerView.Adapter<AdapterVerProducto
 
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
 

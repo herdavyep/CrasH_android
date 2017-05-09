@@ -9,10 +9,21 @@ import android.view.View;
 import com.example.heriberto.crash.Adaptadores.AdapterVerProductos;
 import com.example.heriberto.crash.R;
 import com.example.heriberto.crash.clases.Productos;
+import com.example.heriberto.crash.firebaseReferencias.Referencias;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class verProductos extends AppCompatActivity {
+
+    FirebaseDatabase myDataBase = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = myDataBase.getReference(Referencias.ALMACENES_REFERENCIA).child(Referencias.PRODUCTOS_REFERENCIA);
+    ArrayList<Productos> productos;
+    AdapterVerProductos mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,23 +33,40 @@ public class verProductos extends AppCompatActivity {
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerVerProductos);
 
-        mRecyclerView.setHasFixedSize(true);
+        //mRecyclerView.setHasFixedSize(true);
 
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        ArrayList<Productos> myDataset = new ArrayList<>();
-        myDataset.add(new Productos("Azucar","2000","11","23","500g","45",R.drawable.azucar));
-        myDataset.add(new Productos("Sal","2000","11","23","500g","45",R.drawable.sal));
-        myDataset.add(new Productos("Aceite","2000","11","23","500g","45",R.drawable.aceite));
-        myDataset.add(new Productos("Arros Diana","2000","11","23","500g","45",R.drawable.arroz_diana));
-        myDataset.add(new Productos("Frijol","2000","11","23","500g","45",R.drawable.frijoles));
-        myDataset.add(new Productos("Cafe","2000","11","23","500g","45",R.drawable.cafe_));
-        myDataset.add(new Productos("Lentejas","2000","11","23","500g","45",R.drawable.lentejas));
-        myDataset.add(new Productos("Panela","2000","11","23","Atao","45",R.drawable.panela));
+        productos = new ArrayList<>();
 
-        AdapterVerProductos mAdapter = new AdapterVerProductos(myDataset);
+        mAdapter = new AdapterVerProductos(productos);
+
         mRecyclerView.setAdapter(mAdapter);
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                productos.removeAll(productos);
+
+                for (DataSnapshot snapshot:
+                        dataSnapshot.getChildren()) {
+
+                    Productos producto = snapshot.getValue(Productos.class);
+
+                        productos.add(producto);
+
+                }
+                mAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     public void atrasP_A(View view){
@@ -50,3 +78,11 @@ public class verProductos extends AppCompatActivity {
 }
 
 
+/*productos.add(new Productos("Azucar",2000,"11","23","500g","45",R.drawable.azucar));
+        productos.add(new Productos("Sal","2000","11","23","500g","45",R.drawable.sal));
+        productos.add(new Productos("Aceite","2000","11","23","500g","45",R.drawable.aceite));
+        productos.add(new Productos("Arros Diana","2000","11","23","500g","45",R.drawable.arroz_diana));
+        productos.add(new Productos("Frijol","2000","11","23","500g","45",R.drawable.frijoles));
+        productos.add(new Productos("Cafe","2000","11","23","500g","45",R.drawable.cafe_));
+        productos.add(new Productos("Lentejas","2000","11","23","500g","45",R.drawable.lentejas));
+        productos.add(new Productos("Panela","2000","11","23","Atao","45",R.drawable.panela));*/

@@ -21,9 +21,12 @@ public class EditarProductoActivity extends AppCompatActivity {
 
     public void cerrarEditarProducto (View view){
 
-        Intent admin = new Intent(EditarProductoActivity.this, VistaAdminActivity.class);
-        startActivity(admin);
-        finish();
+        onBackPressed();
+    }
+
+    public void GuardarEditar (View view){
+
+
     }
 
 }

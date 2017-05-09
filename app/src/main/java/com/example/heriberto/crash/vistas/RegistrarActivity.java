@@ -14,9 +14,11 @@ import android.widget.Toast;
 
 import com.example.heriberto.crash.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class RegistrarActivity extends AppCompatActivity {
 
@@ -77,13 +79,7 @@ public class RegistrarActivity extends AppCompatActivity {
                                                     public void onComplete(@NonNull Task<AuthResult> task) {
 
 
-                                                        if (!task.isSuccessful()){
-
-                                                            Toast.makeText(getApplicationContext(),"ERROR de conexion"+task.getException(),Toast.LENGTH_SHORT).show();
-                                                            return;
-
-                                                        }else {
-
+                                                        if (task.isSuccessful()){
 
                                                             Intent IrAlmacenes = new Intent(RegistrarActivity.this, verAlmacenes.class);
                                                             startActivity(IrAlmacenes);
@@ -91,7 +87,17 @@ public class RegistrarActivity extends AppCompatActivity {
                                                             return;
                                                         }
                                                     }
-                                                });
+                                                }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+
+                                                if (e instanceof FirebaseAuthUserCollisionException){
+
+                                                    Toast.makeText(getApplicationContext(),"El Usuario Ya Existe ",Toast.LENGTH_SHORT).show();
+
+                                                }
+                                            }
+                                        });
                                     }
                                 }
                             });
