@@ -6,19 +6,14 @@ package com.example.heriberto.crash.clases;
 
 public class Almacenes {
 
-    private int id_almacen;
+    private String id_almacen;
     private String nombre;
     private String direccion;
     private String telefono;
     private String ciudad;
     private int imagenAlmacen;
 
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public Almacenes() {
     }
 
     public Almacenes(String nombre, String direccion, String telefono, String ciudad, int imagenAlmacen) {
@@ -29,12 +24,20 @@ public class Almacenes {
         this.imagenAlmacen = imagenAlmacen;
     }
 
-    public int getId_almacen() {
+    public String getId_almacen() {
         return id_almacen;
     }
 
-    public void setId_almacen(int id_almacen) {
+    public void setId_almacen(String id_almacen) {
         this.id_almacen = id_almacen;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
     public String getNombre() {

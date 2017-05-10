@@ -6,15 +6,14 @@ package com.example.heriberto.crash.clases;
 
 public class Productos {
 
-    private int id_producto;
+    private String id_almacen;
     private String nombre;
-    //private String precio;
     private String vencimiento_oferta;
     private String productos_disponibles;
     private String presentacion;
     private String porcentaje_descuento;
     private int imagenProducto;
-    private int precio2;
+    private int precio;
     private boolean estado;
 
 
@@ -22,50 +21,40 @@ public class Productos {
     public Productos() {
     }
 
+    public Productos(String nombre, int precio, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento, String id_almacen) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.vencimiento_oferta = vencimiento_oferta;
+        this.productos_disponibles = productos_disponibles;
+        this.presentacion = presentacion;
+        this.porcentaje_descuento = porcentaje_descuento;
+        this.id_almacen = id_almacen;
+    }
+
     public Productos(String nombre, int precio, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento, int imagenProducto) {
         this.nombre = nombre;
-        this.precio2 = precio;
         this.vencimiento_oferta = vencimiento_oferta;
         this.productos_disponibles = productos_disponibles;
         this.presentacion = presentacion;
         this.porcentaje_descuento = porcentaje_descuento;
         this.imagenProducto = imagenProducto;
+        this.precio = precio;
     }
 
-    public Productos(String nombre, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento, int imagenProducto, int precio2) {
-        this.nombre = nombre;
-        this.vencimiento_oferta = vencimiento_oferta;
-        this.productos_disponibles = productos_disponibles;
-        this.presentacion = presentacion;
-        this.porcentaje_descuento = porcentaje_descuento;
-        this.imagenProducto = imagenProducto;
-        this.precio2 = precio2;
+    public int getPrecio() {
+        return precio;
     }
 
-    public Productos(String nombre, int precio, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento) {
-        this.nombre = nombre;
-        this.precio2 = precio;
-        this.vencimiento_oferta = vencimiento_oferta;
-        this.productos_disponibles = productos_disponibles;
-        this.presentacion = presentacion;
-        this.porcentaje_descuento = porcentaje_descuento;
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
-
-    public int getPrecio2() {
-        return precio2;
+    public String getId_almacen() {
+        return id_almacen;
     }
 
-    public void setPrecio2(int precio2) {
-        this.precio2 = precio2;
-    }
-
-    public int getId_producto() {
-        return id_producto;
-    }
-
-    public void setId_producto(int id_producto) {
-        this.id_producto = id_producto;
+    public void setId_almacen(String id_almacen) {
+        this.id_almacen = id_almacen;
     }
 
     public String getNombre() {
@@ -75,14 +64,6 @@ public class Productos {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    /*public String getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(String precio) {
-        this.precio = precio;
-    }*/
 
     public String getVencimiento_oferta() {
         return vencimiento_oferta;

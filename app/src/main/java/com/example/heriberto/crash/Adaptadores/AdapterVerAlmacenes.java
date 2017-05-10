@@ -27,6 +27,7 @@ public class AdapterVerAlmacenes extends RecyclerView.Adapter<AdapterVerAlmacene
         TextView direccionAlmacen;
         TextView ciudadAlmacen;
         ImageView imagenAlmacen;
+        TextView campoOculto;
         ViewHolder(View v) {
             super(v);
             nombreAlmacen = (TextView) v.findViewById(R.id.nombreAlmacen);
@@ -34,6 +35,7 @@ public class AdapterVerAlmacenes extends RecyclerView.Adapter<AdapterVerAlmacene
             direccionAlmacen = (TextView) v.findViewById(R.id.direccionAlmacen);
             ciudadAlmacen = (TextView) v.findViewById(R.id.ciudadAlmacen);
             imagenAlmacen = (ImageView) v.findViewById(R.id.imagenAlmacen);
+            campoOculto = (TextView) v.findViewById(R.id.id_almacenOculto);
         }
     }
 
@@ -61,6 +63,7 @@ public class AdapterVerAlmacenes extends RecyclerView.Adapter<AdapterVerAlmacene
         holder.telefonoAlmacen.setText(mDataset.get(position).getTelefono());
         holder.direccionAlmacen.setText(mDataset.get(position).getDireccion());
         holder.ciudadAlmacen.setText(mDataset.get(position).getCiudad());
+        holder.campoOculto.setText(mDataset.get(position).getId_almacen());
         holder.imagenAlmacen.setImageResource(mDataset.get(position).getImagenAlmacen());
 
     }

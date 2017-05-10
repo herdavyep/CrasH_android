@@ -2,27 +2,20 @@ package com.example.heriberto.crash.vistas;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.heriberto.crash.Adaptadores.AdapterVerAlmacenes;
-import com.example.heriberto.crash.MainActivity;
 import com.example.heriberto.crash.R;
 import com.example.heriberto.crash.clases.Almacenes;
+import com.example.heriberto.crash.clases.Productos;
+import com.example.heriberto.crash.clasesEstaticas.AlmacenSeleccionado;
 import com.example.heriberto.crash.firebaseReferencias.Referencias;
-import com.example.heriberto.crash.modelos.Almacen;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -31,8 +24,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class verAlmacenes extends AppCompatActivity {
@@ -40,7 +31,11 @@ public class verAlmacenes extends AppCompatActivity {
     Button u;
     Button a;
     Button e;
-    ArrayList<Almacenes> myDataset = new ArrayList<>();
+    ArrayList<Almacenes> almacenes;
+
+    FirebaseDatabase myDataBase = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = myDataBase.getReference(Referencias.ALMACEN_REFERENCIA).child(Referencias.ALMACENES_REFERENCIA);
+    AdapterVerAlmacenes mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -49,32 +44,45 @@ public class verAlmacenes extends AppCompatActivity {
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerVerAlmacenes);
 
-        mRecyclerView.setHasFixedSize(true);
+        //mRecyclerView.setHasFixedSize(true);
 
-        // use a linear layout manager
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        almacenes = new ArrayList<>();
 
+        mAdapter = new AdapterVerAlmacenes(almacenes);
 
-        myDataset.add(new Almacenes("ara","cra 7 # 13 - 111","3146487711","cartago",R.drawable.ara));
-        myDataset.add(new Almacenes("D1","cra 10 # 13 - 111","3146487661","cartago",R.drawable.d1));
-        myDataset.add(new Almacenes("Exito","cra 4 # 13 - 111","3146487711","cartago",R.drawable.exito));
-        myDataset.add(new Almacenes("Super Inter","cra 11 # 13 - 111","3144487711","cartago",R.drawable.superinter));
-        myDataset.add(new Almacenes("Olimpica","cra 9 # 13 - 111","3146487711","cartago",R.drawable.olimpica));
-        myDataset.add(new Almacenes("Comfandi","cra 5 # 13 - 111","3146486611","cartago",R.drawable.comfandi));
-        myDataset.add(new Almacenes("Colsubsidio","cra 1 # 13 - 111","3146007711","cartago",R.drawable.colsubsidio));
-        myDataset.add(new Almacenes("Metro","cra 7 # 13 - 111","3146487121","cartago",R.drawable.metro));
-
-        AdapterVerAlmacenes mAdapter = new AdapterVerAlmacenes(myDataset);
         mRecyclerView.setAdapter(mAdapter);
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                almacenes.removeAll(almacenes);
+
+                for (DataSnapshot snapshot:
+                        dataSnapshot.getChildren()) {
+
+                    Almacenes almacen = snapshot.getValue(Almacenes.class);
+
+                    almacenes.add(almacen);
+
+                }
+                mAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         TextView usuario = (TextView) findViewById(R.id.user);
 
-        usuario.setText("hola "+ user.getUid());
-
-
+        usuario.setText("hola "+ user.getEmail());
 
 
         u = (Button) findViewById(R.id.crearProducto);
@@ -114,7 +122,40 @@ public class verAlmacenes extends AppCompatActivity {
             }
         });
 
-        /*FirebaseDatabase myDataBase = FirebaseDatabase.getInstance();
+
+    }
+
+    public void cerrarSesion(View view){
+
+        FirebaseAuth.getInstance().signOut();
+        Toast.makeText(getApplicationContext(),"Sesion Terminada",Toast.LENGTH_SHORT).show();
+        Intent IrLogin = new Intent(verAlmacenes.this, LoginActivity.class);
+        startActivity(IrLogin);
+        finish();
+    }
+
+    public void IrProductos (View view){
+
+        TextView idAlmacen = (TextView) view.findViewById(R.id.id_almacenOculto);
+
+        String id_almacenSeleccionado = idAlmacen.getText().toString();
+        AlmacenSeleccionado.setId_almacenSeleccionado(id_almacenSeleccionado);
+
+        Intent IrLogin = new Intent(verAlmacenes.this, verProductos.class);
+        startActivity(IrLogin);
+    }
+
+}
+/*almacenes.add(new Almacenes("ara","cra 7 # 13 - 111","3146487711","cartago",R.drawable.ara));
+        almacenes.add(new Almacenes("D1","cra 10 # 13 - 111","3146487661","cartago",R.drawable.d1));
+        almacenes.add(new Almacenes("Exito","cra 4 # 13 - 111","3146487711","cartago",R.drawable.exito));
+        almacenes.add(new Almacenes("Super Inter","cra 11 # 13 - 111","3144487711","cartago",R.drawable.superinter));
+        almacenes.add(new Almacenes("Olimpica","cra 9 # 13 - 111","3146487711","cartago",R.drawable.olimpica));
+        almacenes.add(new Almacenes("Comfandi","cra 5 # 13 - 111","3146486611","cartago",R.drawable.comfandi));
+        almacenes.add(new Almacenes("Colsubsidio","cra 1 # 13 - 111","3146007711","cartago",R.drawable.colsubsidio));
+        almacenes.add(new Almacenes("Metro","cra 7 # 13 - 111","3146487121","cartago",R.drawable.metro));*/
+
+      /*FirebaseDatabase myDataBase = FirebaseDatabase.getInstance();
         DatabaseReference myRef = myDataBase.getReference(Referencias.TUTORIAL_REFERENCE);
 
         myRef.push().setValue(1);
@@ -139,21 +180,3 @@ public class verAlmacenes extends AppCompatActivity {
         };
 
         myRef.addValueEventListener(valueEventListener);*/
-    }
-
-    public void cerrarSesion(View view){
-
-        FirebaseAuth.getInstance().signOut();
-        Toast.makeText(getApplicationContext(),"Sesion Terminada",Toast.LENGTH_SHORT).show();
-        Intent IrLogin = new Intent(verAlmacenes.this, LoginActivity.class);
-        startActivity(IrLogin);
-        finish();
-    }
-
-    public void IrProductos (View view){
-
-        Intent IrLogin = new Intent(verAlmacenes.this, verProductos.class);
-        startActivity(IrLogin);
-    }
-
-}

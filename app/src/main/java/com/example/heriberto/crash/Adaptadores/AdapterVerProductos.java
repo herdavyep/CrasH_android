@@ -64,10 +64,10 @@ public class AdapterVerProductos extends RecyclerView.Adapter<AdapterVerProducto
 
         holder.nombreProducto.setText(mmDataset.get(position).getNombre());
         holder.presentacion.setText(mmDataset.get(position).getPresentacion());
-        holder.precio.setText (mmDataset.get(position).getPrecio2()+" pesos");
+        holder.precio.setText (mmDataset.get(position).getPrecio()+" pesos");
         holder.vencimientoOferta.setText("Oferta vence en: "+mmDataset.get(position).getVencimiento_oferta()+" dias");
         holder.productosDisponibles.setText(mmDataset.get(position).getProductos_disponibles());
-        holder.porcentajeDescuento.setText(mmDataset.get(position).getPorcentaje_descuento()+"%");
+        holder.porcentajeDescuento.setText("-"+mmDataset.get(position).getPorcentaje_descuento()+"%");
         holder.imagenProducto.setImageResource(mmDataset.get(position).getImagenProducto());
 
     }

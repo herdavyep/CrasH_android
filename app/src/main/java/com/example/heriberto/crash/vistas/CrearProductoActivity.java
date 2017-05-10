@@ -1,15 +1,9 @@
 package com.example.heriberto.crash.vistas;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.text.Editable;
 import android.view.View;
-import android.widget.EditText;
 
 import com.example.heriberto.crash.R;
 import com.example.heriberto.crash.clases.Productos;
@@ -20,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class CrearProductoActivity extends AppCompatActivity {
 
     FirebaseDatabase myDataBase = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = myDataBase.getReference(Referencias.ALMACENES_REFERENCIA);
+    DatabaseReference myRef = myDataBase.getReference(Referencias.ALMACEN_REFERENCIA);
 
 
     @Override
@@ -58,7 +52,10 @@ public class CrearProductoActivity extends AppCompatActivity {
         final TextInputEditText EDporcentajeDescuento = (TextInputEditText) findViewById(R.id.porcentajeDescuento);
         final String porcentajeDescuento = EDporcentajeDescuento.getText().toString();
 
-        Productos producto = new Productos(nombreProducto,precio2,vencimientoOferta,productosDisponibles,presentacionProducto,porcentajeDescuento);
+        final TextInputEditText EDidAlmacen = (TextInputEditText) findViewById(R.id.idAlmacen);
+        final String idAlmacen = EDidAlmacen.getText().toString();
+
+        Productos producto = new Productos(nombreProducto,precio2,vencimientoOferta,productosDisponibles,presentacionProducto,porcentajeDescuento,idAlmacen);
         //Productos producto = new Productos(nombreProducto,precioProducto,presentacionProducto);
 
         myRef.child(Referencias.PRODUCTOS_REFERENCIA).push().setValue(producto);

@@ -117,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Porcentaje descuento"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:theme="@style/EditText"/>
 
             </android.support.design.widget.TextInputLayout>
@@ -139,7 +139,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="Productos disponibles"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:theme="@style/EditText" />
             </android.support.design.widget.TextInputLayout>
 
@@ -158,7 +158,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Almacen"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:theme="@style/EditText" />
 
             </android.support.design.widget.TextInputLayout>
@@ -178,7 +178,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Vencimiento oferta"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:theme="@style/EditText"/>
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>

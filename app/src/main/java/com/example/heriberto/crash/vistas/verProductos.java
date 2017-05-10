@@ -5,10 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.heriberto.crash.Adaptadores.AdapterVerProductos;
 import com.example.heriberto.crash.R;
 import com.example.heriberto.crash.clases.Productos;
+import com.example.heriberto.crash.clasesEstaticas.AlmacenSeleccionado;
 import com.example.heriberto.crash.firebaseReferencias.Referencias;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,9 +23,10 @@ import java.util.ArrayList;
 public class verProductos extends AppCompatActivity {
 
     FirebaseDatabase myDataBase = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = myDataBase.getReference(Referencias.ALMACENES_REFERENCIA).child(Referencias.PRODUCTOS_REFERENCIA);
+    DatabaseReference myRef = myDataBase.getReference(Referencias.ALMACEN_REFERENCIA).child(Referencias.PRODUCTOS_REFERENCIA);
     ArrayList<Productos> productos;
     AdapterVerProductos mAdapter;
+    String idAlmacen = AlmacenSeleccionado.getId_almacenSeleccionado();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +57,11 @@ public class verProductos extends AppCompatActivity {
 
                     Productos producto = snapshot.getValue(Productos.class);
 
+                    if (idAlmacen.equals(producto.getId_almacen())){
+
                         productos.add(producto);
+
+                    }
 
                 }
                 mAdapter.notifyDataSetChanged();

@@ -6,7 +6,9 @@ package com.example.heriberto.crash.firebaseReferencias;
 
 public class Referencias {
 
-    final public static String ALMACENES_REFERENCIA = "almacen";
+    final public static String ALMACEN_REFERENCIA = "almacen";
+
+    final public static String ALMACENES_REFERENCIA = "almacenes";
 
     final public static String PRODUCTOS_REFERENCIA = "productos";
 
