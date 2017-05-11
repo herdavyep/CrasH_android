@@ -11,22 +11,37 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.heriberto.crash.MainActivity;
 import com.example.heriberto.crash.R;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private FirebaseAuth firebaseConection;
+    private FirebaseAuth.AuthStateListener firebaseListener;
+    private GoogleApiClient googleApiClient;
+    public static final int SIGN_IN_CODE = 777;
+    private ProgressBar progressBar;
+    private Button inicio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
 
         firebaseConection = FirebaseAuth.getInstance();
 
-        Button inicio = (Button)findViewById(R.id.iniciarSesion);
+        inicio = (Button)findViewById(R.id.iniciarSesion);
 
         inicio.setOnClickListener(new View.OnClickListener(){
 
@@ -121,8 +136,100 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+        firebaseListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    goMainScreen();
+                }
+            }
+        };
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        firebaseConection.addAuthStateListener(firebaseListener);
+    }
+
+    public void iniciarSesionGoogle(View view){
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        googleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
+        Intent intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
+        startActivityForResult(intent, SIGN_IN_CODE);
+
     }
 
 
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == SIGN_IN_CODE) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            handleSignInResult(result);
+        }
+    }
+
+    private void handleSignInResult(GoogleSignInResult result) {
+
+        if(result.isSuccess()){
+
+            firebaseAuthWithGoogle(result.getSignInAccount());
+
+        }else{
+
+            Toast.makeText(this, "No se pudo conectar con google", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void firebaseAuthWithGoogle(GoogleSignInAccount signInAccount) {
+
+        progressBar.setVisibility(View.VISIBLE);
+        inicio.setVisibility(View.GONE);
+
+
+        AuthCredential credential = GoogleAuthProvider.getCredential(signInAccount.getIdToken(), null);
+        firebaseConection.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                progressBar.setVisibility(View.GONE);
+                inicio.setVisibility(View.VISIBLE);
+
+
+                if (!task.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(),"No se pudo autenticar con firebase", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    public void goMainScreen() {
+        Intent intent = new Intent(this, verAlmacenes.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+
+    }
 }

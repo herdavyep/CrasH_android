@@ -138,6 +138,11 @@
                 android:textAllCaps="false"
                 android:textColor="@android:color/background_light" />
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
         </LinearLayout>
 
         <LinearLayout
@@ -195,6 +200,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_weight="0"
+                    android:onClick="iniciarSesionGoogle"
                     android:backgroundTint="@color/colorPrimary"
                     app:srcCompat="@drawable/gmailbotoncuadro70" />
             </LinearLayout>

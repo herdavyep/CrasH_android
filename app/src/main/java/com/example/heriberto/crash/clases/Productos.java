@@ -7,6 +7,7 @@ package com.example.heriberto.crash.clases;
 public class Productos {
 
     private String id_almacen;
+    private String id_producto;
     private String nombre;
     private String vencimiento_oferta;
     private String productos_disponibles;
@@ -39,6 +40,14 @@ public class Productos {
         this.porcentaje_descuento = porcentaje_descuento;
         this.imagenProducto = imagenProducto;
         this.precio = precio;
+    }
+
+    public String getId_producto() {
+        return id_producto;
+    }
+
+    public void setId_producto(String id_producto) {
+        this.id_producto = id_producto;
     }
 
     public int getPrecio() {

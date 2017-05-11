@@ -93,4 +93,7 @@
     <string name="title_activity_productos_admin">ProductosAdminActivity</string>
     <string name="cancelar">Cancelar</string>
     <string name="registrarsePalabra">Registrarse</string>
+    <string name="title_activity_categorias_admin">CategoriasAdminActivity</string>
+    <string name="title_activity_usuarios_admin">UsuariosAdminActivity</string>
+    <string name="title_activity_almacenes_admin">AlmacenesAdminActivity</string>
 </resources>

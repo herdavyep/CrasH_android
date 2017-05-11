@@ -50,12 +50,22 @@
             android:name=".vistas.ProductosAdminActivity"
             android:label="@string/title_activity_productos_admin"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".vistas.AlmacenesAdminActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".vistas.CategoriasAdminActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".vistas.UsuariosAdminActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".vistas.CategoriasAdminActivity"
+            android:label="@string/title_activity_categorias_admin"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".vistas.UsuariosAdminActivity"
+            android:label="@string/title_activity_usuarios_admin"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".vistas.AlmacenesAdminActivity"
+            android:label="@string/title_activity_almacenes_admin"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".vistas.CrearUsuariosActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

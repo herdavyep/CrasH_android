@@ -79,8 +79,8 @@ public class verAlmacenes extends AppCompatActivity {
         });
 
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        TextView usuario = (TextView) findViewById(R.id.user);
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final TextView usuario = (TextView) findViewById(R.id.user);
 
         usuario.setText("hola "+ user.getEmail());
 
@@ -111,14 +111,19 @@ public class verAlmacenes extends AppCompatActivity {
             }
         });*/
 
+        final String name="afuro";
+
         e = (Button) findViewById(R.id.IrProductos);
         e.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
 
-                Intent productos = new Intent(verAlmacenes.this, verProductos.class);
-                startActivity(productos);
+                /*Intent productos = new Intent(verAlmacenes.this, CrearUsuariosActivity.class);
+                startActivity(productos);*/
+
+
+
             }
         });
 
