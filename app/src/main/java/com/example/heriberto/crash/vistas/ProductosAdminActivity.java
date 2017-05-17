@@ -2,18 +2,16 @@ package com.example.heriberto.crash.vistas;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.heriberto.crash.Adaptadores.AdapterAdminProductos;
-import com.example.heriberto.crash.Adaptadores.AdapterVerProductos;
 import com.example.heriberto.crash.R;
 import com.example.heriberto.crash.clases.Productos;
+import com.example.heriberto.crash.clasesEstaticas.AlmacenSeleccionado;
 
 import java.util.ArrayList;
 
@@ -32,14 +30,7 @@ public class ProductosAdminActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         ArrayList<Productos> myDataset = new ArrayList<>();
-        myDataset.add(new Productos("Azucar",2000,"11","23","500g","45",R.drawable.azucar));
-        /*productos.add(new Productos("Sal","2000","11","23","500g","45",R.drawable.sal));
-        productos.add(new Productos("Aceite","2000","11","23","500g","45",R.drawable.aceite));
-        productos.add(new Productos("Arros Diana","2000","11","23","500g","45",R.drawable.arroz_diana));
-        productos.add(new Productos("Frijol","2000","11","23","500g","45",R.drawable.frijoles));
-        productos.add(new Productos("Cafe","2000","11","23","500g","45",R.drawable.cafe_));
-        productos.add(new Productos("Lentejas","2000","11","23","500g","45",R.drawable.lentejas));
-        productos.add(new Productos("Panela","2000","11","23","Atao","45",R.drawable.panela));*/
+        myDataset.add(new Productos("agua",2000,"11","23","500g","45",R.drawable.azucar));
 
         AdapterAdminProductos mAdapter = new AdapterAdminProductos(myDataset);
         mRecyclerView.setAdapter(mAdapter);
@@ -59,6 +50,12 @@ public class ProductosAdminActivity extends AppCompatActivity {
     }
 
     public void editarProducto (View view){
+
+        //TextView idProducto = (TextView) view.findViewById(R.id.nombreAdminProducto);
+
+        //String id_almacenSeleccionado = idProducto.getText().toString();
+        String id_almacenSeleccionado = "agua";
+        AlmacenSeleccionado.setId_almacenSeleccionado(id_almacenSeleccionado);
 
         Intent E_P = new Intent(ProductosAdminActivity.this, EditarProductoActivity.class);
         startActivity(E_P);

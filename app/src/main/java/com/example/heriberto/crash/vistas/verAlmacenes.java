@@ -16,6 +16,7 @@ import com.example.heriberto.crash.clases.Almacenes;
 import com.example.heriberto.crash.clases.Productos;
 import com.example.heriberto.crash.clasesEstaticas.AlmacenSeleccionado;
 import com.example.heriberto.crash.firebaseReferencias.Referencias;
+import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -81,8 +82,9 @@ public class verAlmacenes extends AppCompatActivity {
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         final TextView usuario = (TextView) findViewById(R.id.user);
+        String email = user.getEmail();
 
-        usuario.setText("hola "+ user.getEmail());
+        usuario.setText("hola "+ email);
 
 
         u = (Button) findViewById(R.id.crearProducto);
@@ -127,12 +129,12 @@ public class verAlmacenes extends AppCompatActivity {
             }
         });
 
-
     }
 
     public void cerrarSesion(View view){
 
         FirebaseAuth.getInstance().signOut();
+        LoginManager.getInstance().logOut();
         Toast.makeText(getApplicationContext(),"Sesion Terminada",Toast.LENGTH_SHORT).show();
         Intent IrLogin = new Intent(verAlmacenes.this, LoginActivity.class);
         startActivity(IrLogin);

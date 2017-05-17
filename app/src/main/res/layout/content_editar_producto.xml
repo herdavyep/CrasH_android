@@ -11,8 +11,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,7 +48,7 @@
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
-
+<!--
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -64,7 +63,16 @@
                         android:inputType="textPersonName"
                         android:theme="@style/EditText" />
                 </android.support.design.widget.TextInputLayout>
+-->
 
+                <EditText
+                    android:id="@+id/nombreEditarProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:hint="Nombre producto"
+                    android:inputType="textPersonName"
+                    android:theme="@style/EditText" />
             </LinearLayout>
 
             <LinearLayout
