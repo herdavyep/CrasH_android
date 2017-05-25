@@ -1,5 +1,6 @@
 package com.example.heriberto.crash.Adaptadores;
 
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,8 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.heriberto.crash.R;
 import com.example.heriberto.crash.clases.Productos;
+import com.example.heriberto.crash.vistas.CrearProductoActivity;
+import com.example.heriberto.crash.vistas.ProductosAdminActivity;
 
 import java.util.ArrayList;
 
@@ -39,6 +43,7 @@ public class AdapterVerProductos extends RecyclerView.Adapter<AdapterVerProducto
             productosDisponibles = (TextView) v.findViewById(R.id.productosVerDisponibles);
             porcentajeDescuento = (TextView) v.findViewById(R.id.porcentajeVerDescuento);
             imagenProducto = (ImageView) v.findViewById(R.id.imagenVerProducto);
+
         }
     }
 
@@ -66,9 +71,9 @@ public class AdapterVerProductos extends RecyclerView.Adapter<AdapterVerProducto
         holder.presentacion.setText(mmDataset.get(position).getPresentacion());
         holder.precio.setText (mmDataset.get(position).getPrecio()+" pesos");
         holder.vencimientoOferta.setText("Oferta vence en: "+mmDataset.get(position).getVencimiento_oferta()+" dias");
-        holder.productosDisponibles.setText(mmDataset.get(position).getProductos_disponibles());
+        holder.productosDisponibles.setText(mmDataset.get(position).getImagen());
         holder.porcentajeDescuento.setText("-"+mmDataset.get(position).getPorcentaje_descuento()+"%");
-        holder.imagenProducto.setImageResource(mmDataset.get(position).getImagenProducto());
+        holder.imagenProducto.setImageURI(Uri.parse(mmDataset.get(position).getImagen()));
 
     }
 

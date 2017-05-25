@@ -5,10 +5,15 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.heriberto.crash.R;
+import com.facebook.login.LoginManager;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class VistaAdminActivity extends AppCompatActivity {
 
@@ -43,6 +48,48 @@ public class VistaAdminActivity extends AppCompatActivity {
 
         Intent AdA = new Intent(VistaAdminActivity.this, AlmacenesAdminActivity.class);
         startActivity(AdA);
+    }
+
+    public void BotonOpcionesAdmin(View view) {
+
+        PopupMenu popup = new PopupMenu(this, view);
+        popup.getMenuInflater().inflate(R.menu.menu_admin, popup.getMenu());
+
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
+
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.cerrarSesionAdmin:
+                        cerrarSesion();
+                        return true;
+                    case R.id.vistaCliente:
+                        vista_clientes();
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+        popup.show();
+    }
+
+    public void vista_clientes(){
+
+        Intent IrLogin = new Intent(VistaAdminActivity.this, verAlmacenes.class);
+        IrLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(IrLogin);
+    }
+
+
+    public void cerrarSesion(){
+
+        FirebaseAuth.getInstance().signOut();
+        LoginManager.getInstance().logOut();
+        Toast.makeText(getApplicationContext(),"Sesion Terminada",Toast.LENGTH_SHORT).show();
+        Intent IrLogin = new Intent(VistaAdminActivity.this, LoginActivity.class);
+        startActivity(IrLogin);
+        finish();
     }
 
 }

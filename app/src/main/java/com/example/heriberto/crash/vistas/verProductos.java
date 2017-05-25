@@ -36,8 +36,6 @@ public class verProductos extends AppCompatActivity {
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerVerProductos);
 
-        //mRecyclerView.setHasFixedSize(true);
-
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         productos = new ArrayList<>();
@@ -85,11 +83,11 @@ public class verProductos extends AppCompatActivity {
 }
 
 
-/*productos.add(new Productos("Azucar",2000,"11","23","500g","45",R.drawable.azucar));
-        productos.add(new Productos("Sal","2000","11","23","500g","45",R.drawable.sal));
-        productos.add(new Productos("Aceite","2000","11","23","500g","45",R.drawable.aceite));
-        productos.add(new Productos("Arros Diana","2000","11","23","500g","45",R.drawable.arroz_diana));
-        productos.add(new Productos("Frijol","2000","11","23","500g","45",R.drawable.frijoles));
-        productos.add(new Productos("Cafe","2000","11","23","500g","45",R.drawable.cafe_));
-        productos.add(new Productos("Lentejas","2000","11","23","500g","45",R.drawable.lentejas));
-        productos.add(new Productos("Panela","2000","11","23","Atao","45",R.drawable.panela));*/
+/*productos.add(new ProductosEditar("Azucar",2000,"11","23","500g","45",R.drawable.azucar));
+        productos.add(new ProductosEditar("Sal","2000","11","23","500g","45",R.drawable.sal));
+        productos.add(new ProductosEditar("Aceite","2000","11","23","500g","45",R.drawable.aceite));
+        productos.add(new ProductosEditar("Arros Diana","2000","11","23","500g","45",R.drawable.arroz_diana));
+        productos.add(new ProductosEditar("Frijol","2000","11","23","500g","45",R.drawable.frijoles));
+        productos.add(new ProductosEditar("Cafe","2000","11","23","500g","45",R.drawable.cafe_));
+        productos.add(new ProductosEditar("Lentejas","2000","11","23","500g","45",R.drawable.lentejas));
+        productos.add(new ProductosEditar("Panela","2000","11","23","Atao","45",R.drawable.panela));*/

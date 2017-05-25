@@ -13,6 +13,7 @@ import com.example.heriberto.crash.Adaptadores.AdapterVerAlmacenes;
 import com.example.heriberto.crash.clases.Almacenes;
 import com.example.heriberto.crash.firebaseReferencias.Referencias;
 import com.example.heriberto.crash.vistas.LoginActivity;
+import com.example.heriberto.crash.vistas.VistaAdminActivity;
 import com.example.heriberto.crash.vistas.verAlmacenes;
 import com.example.heriberto.crash.vistas.verProductos;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Button almacenes;
    // Button iniciarSesion;
+    private String admin = "hdycotecnova@gmail.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,18 +39,22 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (user != null){
+        if (user.getEmail().equals(admin)){
 
-            Intent almacenes = new Intent(MainActivity.this, verAlmacenes.class);
+            Intent almacenes = new Intent(MainActivity.this, VistaAdminActivity.class);
             startActivity(almacenes);
             finish();
 
+        }else if (user != null){
+
+            Intent login = new Intent(MainActivity.this, verAlmacenes.class);
+            startActivity(login);
+            finish();
         }else {
 
             Intent login = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(login);
             finish();
-
         }
 
 
@@ -85,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        ArrayList<Productos> mDataset = new ArrayList<>();
+        ArrayList<ProductosEditar> mDataset = new ArrayList<>();
 
         AdapterVerAlmacenes mAdapter = new AdapterVerAlmacenes(mDataset);
         mRecyclerView.setAdapter(mAdapter);*/

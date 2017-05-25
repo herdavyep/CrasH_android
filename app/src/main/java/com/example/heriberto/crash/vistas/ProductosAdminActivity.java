@@ -9,13 +9,25 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.heriberto.crash.Adaptadores.AdapterAdminProductos;
+import com.example.heriberto.crash.Adaptadores.AdapterVerProductos;
 import com.example.heriberto.crash.R;
 import com.example.heriberto.crash.clases.Productos;
 import com.example.heriberto.crash.clasesEstaticas.AlmacenSeleccionado;
+import com.example.heriberto.crash.firebaseReferencias.Referencias;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class ProductosAdminActivity extends AppCompatActivity {
+
+    FirebaseDatabase myDataBase = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = myDataBase.getReference(Referencias.ALMACEN_REFERENCIA).child(Referencias.PRODUCTOS_REFERENCIA);
+    ArrayList<Productos> productos;
+    AdapterAdminProductos mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,16 +36,38 @@ public class ProductosAdminActivity extends AppCompatActivity {
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerAdminVerProductos);
 
-        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        productos = new ArrayList<>();
 
-        ArrayList<Productos> myDataset = new ArrayList<>();
-        myDataset.add(new Productos("agua",2000,"11","23","500g","45",R.drawable.azucar));
+        mAdapter = new AdapterAdminProductos(productos);
 
-        AdapterAdminProductos mAdapter = new AdapterAdminProductos(myDataset);
         mRecyclerView.setAdapter(mAdapter);
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                productos.removeAll(productos);
+
+                for (DataSnapshot snapshot:
+                        dataSnapshot.getChildren()) {
+
+                        Productos producto = snapshot.getValue(Productos.class);
+
+                        productos.add(producto);
+
+                }
+                mAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     public void VolverP_A(View view){
@@ -54,8 +88,8 @@ public class ProductosAdminActivity extends AppCompatActivity {
         //TextView idProducto = (TextView) view.findViewById(R.id.nombreAdminProducto);
 
         //String id_almacenSeleccionado = idProducto.getText().toString();
-        String id_almacenSeleccionado = "agua";
-        AlmacenSeleccionado.setId_almacenSeleccionado(id_almacenSeleccionado);
+        //String id_almacenSeleccionado = "agua";
+        //AlmacenSeleccionado.setId_almacenSeleccionado(id_almacenSeleccionado);
 
         Intent E_P = new Intent(ProductosAdminActivity.this, EditarProductoActivity.class);
         startActivity(E_P);

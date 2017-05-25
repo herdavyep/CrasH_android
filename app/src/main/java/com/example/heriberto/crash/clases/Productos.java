@@ -1,5 +1,7 @@
 package com.example.heriberto.crash.clases;
 
+import android.net.Uri;
+
 /**
  * Created by heriberto on 11/04/17.
  */
@@ -13,7 +15,8 @@ public class Productos {
     private String productos_disponibles;
     private String presentacion;
     private String porcentaje_descuento;
-    private int imagenProducto;
+    //private int imagenProducto;
+    private String imagen;
     private int precio;
     private boolean estado;
 
@@ -22,7 +25,7 @@ public class Productos {
     public Productos() {
     }
 
-    public Productos(String nombre, int precio, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento, String id_almacen) {
+    public Productos(String nombre, int precio, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento, String id_almacen, String imagen) {
         this.nombre = nombre;
         this.precio = precio;
         this.vencimiento_oferta = vencimiento_oferta;
@@ -30,15 +33,16 @@ public class Productos {
         this.presentacion = presentacion;
         this.porcentaje_descuento = porcentaje_descuento;
         this.id_almacen = id_almacen;
+        this.imagen = imagen;
     }
 
-    public Productos(String nombre, int precio, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento, int imagenProducto) {
+    public Productos(String nombre, int precio, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento /*, int imagenProducto*/) {
         this.nombre = nombre;
         this.vencimiento_oferta = vencimiento_oferta;
         this.productos_disponibles = productos_disponibles;
         this.presentacion = presentacion;
         this.porcentaje_descuento = porcentaje_descuento;
-        this.imagenProducto = imagenProducto;
+        //this.imagenProducto = imagenProducto;
         this.precio = precio;
     }
 
@@ -106,13 +110,13 @@ public class Productos {
         this.porcentaje_descuento = porcentaje_descuento;
     }
 
-    public int getImagenProducto() {
+    /*public int getImagenProducto() {
         return imagenProducto;
     }
 
     public void setImagenProducto(int imagenProducto) {
         this.imagenProducto = imagenProducto;
-    }
+    }*/
 
     public boolean isEstado() {
         return estado;
@@ -122,5 +126,11 @@ public class Productos {
         this.estado = estado;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
 
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 }

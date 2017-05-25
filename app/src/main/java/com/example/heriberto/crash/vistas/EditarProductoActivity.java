@@ -10,11 +10,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.heriberto.crash.R;
 import com.example.heriberto.crash.clases.Almacenes;
 import com.example.heriberto.crash.clases.Productos;
 import com.example.heriberto.crash.clasesEstaticas.AlmacenSeleccionado;
+import com.example.heriberto.crash.edicion.ProductosEditar;
 import com.example.heriberto.crash.firebaseReferencias.Referencias;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,15 +26,18 @@ import com.google.firebase.database.ValueEventListener;
 
 public class EditarProductoActivity extends AppCompatActivity {
 
-    String idProducto = AlmacenSeleccionado.getId_almacenSeleccionado();
+    //String idProducto = AlmacenSeleccionado.getId_almacenSeleccionado();
+    String idProducto = "aaaa";
     FirebaseDatabase myDataBase = FirebaseDatabase.getInstance();
     DatabaseReference myRef = myDataBase.getReference(Referencias.ALMACEN_REFERENCIA).child(Referencias.PRODUCTOS_REFERENCIA);
-    Productos productoE;
+    //Productos productoE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_producto);
+
+        //productoE = new Productos();
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -45,7 +50,8 @@ public class EditarProductoActivity extends AppCompatActivity {
 
                     if (idProducto.equals(producto.getNombre())){
 
-                         productoE = producto;
+                         ProductosEditar.ProductosEditar(producto);
+
                     }
 
                 }
@@ -57,9 +63,11 @@ public class EditarProductoActivity extends AppCompatActivity {
 
             }
         });
+        Toast.makeText(getApplicationContext(),ProductosEditar.getNombre(), Toast.LENGTH_SHORT).show();
+
 
         final EditText EDnombreProducto = (EditText) findViewById(R.id.nombreEditarProducto);
-        EDnombreProducto.setText(productoE.getNombre(),TextView.BufferType.EDITABLE);
+        EDnombreProducto.setText(ProductosEditar.getNombre(),TextView.BufferType.EDITABLE);
         //final String nombreProducto = EDnombreProducto.getText().toString();
 
         /*final TextInputEditText EDprecioProducto = (TextInputEditText) findViewById(R.id.precioProducto);

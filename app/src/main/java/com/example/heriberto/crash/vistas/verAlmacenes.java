@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -45,8 +47,6 @@ public class verAlmacenes extends AppCompatActivity {
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerVerAlmacenes);
 
-        //mRecyclerView.setHasFixedSize(true);
-
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         almacenes = new ArrayList<>();
@@ -86,52 +86,33 @@ public class verAlmacenes extends AppCompatActivity {
 
         usuario.setText("hola "+ email);
 
-
-        u = (Button) findViewById(R.id.crearProducto);
-        u.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-
-                Intent productos = new Intent(verAlmacenes.this, VistaAdminActivity.class);
-                startActivity(productos);
-            }
-        });
-
-        /*a = (Button) findViewById(R.id.CerrarSesion);
-        a.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getApplicationContext()," Sesion Terminada",Toast.LENGTH_SHORT).show();
-                FirebaseAuth.getInstance().signOut();
-                //Log.d("chad");
-                Intent IrLogin = new Intent(verAlmacenes.this, LoginActivity.class);
-                startActivity(IrLogin);
-                finish();
-            }
-        });*/
-
-        final String name="afuro";
-
-        e = (Button) findViewById(R.id.IrProductos);
-        e.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-
-                /*Intent productos = new Intent(verAlmacenes.this, CrearUsuariosActivity.class);
-                startActivity(productos);*/
-
-
-
-            }
-        });
-
     }
 
-    public void cerrarSesion(View view){
+    public void BotonOpcion(View view) {
+
+        PopupMenu popup = new PopupMenu(this, view);
+        popup.getMenuInflater().inflate(R.menu.menu_opciones, popup.getMenu());
+
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
+
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.cerrar_sesion:
+                        cerrarSesion();
+                        return true;
+                    case R.id.vistaAdmin:
+                        ir_Admin();
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+        popup.show();
+    }
+
+    public void cerrarSesion(){
 
         FirebaseAuth.getInstance().signOut();
         LoginManager.getInstance().logOut();
@@ -141,6 +122,14 @@ public class verAlmacenes extends AppCompatActivity {
         finish();
     }
 
+    public void ir_Admin (){
+
+        Intent IrLogin = new Intent(verAlmacenes.this, VistaAdminActivity.class);
+        //IrLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(IrLogin);
+    }
+
+
     public void IrProductos (View view){
 
         TextView idAlmacen = (TextView) view.findViewById(R.id.id_almacenOculto);
@@ -149,10 +138,17 @@ public class verAlmacenes extends AppCompatActivity {
         AlmacenSeleccionado.setId_almacenSeleccionado(id_almacenSeleccionado);
 
         Intent IrLogin = new Intent(verAlmacenes.this, verProductos.class);
+        //IrLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(IrLogin);
     }
 
 }
+
+
+
+
+
+
 /*almacenes.add(new Almacenes("ara","cra 7 # 13 - 111","3146487711","cartago",R.drawable.ara));
         almacenes.add(new Almacenes("D1","cra 10 # 13 - 111","3146487661","cartago",R.drawable.d1));
         almacenes.add(new Almacenes("Exito","cra 4 # 13 - 111","3146487711","cartago",R.drawable.exito));
@@ -187,3 +183,46 @@ public class verAlmacenes extends AppCompatActivity {
         };
 
         myRef.addValueEventListener(valueEventListener);*/
+
+      /*a = (Button) findViewById(R.id.CerrarSesion);
+        a.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext()," Sesion Terminada",Toast.LENGTH_SHORT).show();
+                FirebaseAuth.getInstance().signOut();
+                //Log.d("chad");
+                Intent IrLogin = new Intent(verAlmacenes.this, LoginActivity.class);
+                startActivity(IrLogin);
+                finish();
+            }
+        });*/
+
+
+      /*final String name="afuro";
+
+        e = (Button) findViewById(R.id.IrProductos);
+        e.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                Intent productos = new Intent(verAlmacenes.this, CrearUsuariosActivity.class);
+                startActivity(productos);
+
+
+
+            }
+        });*/
+
+      /*u = (Button) findViewById(R.id.crearProducto);
+        u.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                Intent productos = new Intent(verAlmacenes.this, VistaAdminActivity.class);
+                startActivity(productos);
+            }
+        });*/
