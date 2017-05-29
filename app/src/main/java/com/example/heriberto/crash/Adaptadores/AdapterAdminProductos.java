@@ -1,5 +1,6 @@
 package com.example.heriberto.crash.Adaptadores;
 
+import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.heriberto.crash.R;
 import com.example.heriberto.crash.clases.Productos;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 
 public class AdapterAdminProductos extends RecyclerView.Adapter<AdapterAdminProductos.ViewHolder> {
     private ArrayList<Productos> mmDataset;
+    private Context context;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -43,8 +46,9 @@ public class AdapterAdminProductos extends RecyclerView.Adapter<AdapterAdminProd
         }
     }
 
-    public AdapterAdminProductos(ArrayList<Productos> mmyDataset) {
+    public AdapterAdminProductos(ArrayList<Productos> mmyDataset, Context context) {
 
+        this.context = context;
         mmDataset = mmyDataset;
     }
 
@@ -66,9 +70,12 @@ public class AdapterAdminProductos extends RecyclerView.Adapter<AdapterAdminProd
         holder.presentacion.setText(mmDataset.get(position).getPresentacion());
         holder.precio.setText (mmDataset.get(position).getPrecio()+" pesos");
         holder.vencimientoOferta.setText("Oferta vence en: "+mmDataset.get(position).getVencimiento_oferta()+" dias");
-        holder.productosDisponibles.setText(mmDataset.get(position).getImagen());
+        holder.productosDisponibles.setText(mmDataset.get(position).getProductos_disponibles());
         holder.porcentajeDescuento.setText(mmDataset.get(position).getPorcentaje_descuento()+"%");
-        holder.imagenProducto.setImageURI(Uri.parse(mmDataset.get(position).getImagen()));
+        //holder.imagenProducto.setImageURI(Uri.parse(mmDataset.get(position).getImagen()));
+        Picasso.with(context)
+                .load(mmDataset.get(position).getImagen())
+                .into(holder.imagenProducto);
 
     }
 

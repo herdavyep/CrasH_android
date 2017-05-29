@@ -40,7 +40,7 @@ public class ProductosAdminActivity extends AppCompatActivity {
 
         productos = new ArrayList<>();
 
-        mAdapter = new AdapterAdminProductos(productos);
+        mAdapter = new AdapterAdminProductos(productos,this);
 
         mRecyclerView.setAdapter(mAdapter);
 

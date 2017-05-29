@@ -1,5 +1,6 @@
 package com.example.heriberto.crash.Adaptadores;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.heriberto.crash.R;
 import com.example.heriberto.crash.clases.Almacenes;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 
 public class AdapterVerAlmacenes extends RecyclerView.Adapter<AdapterVerAlmacenes.ViewHolder> {
     private ArrayList<Almacenes> mDataset;
+    private Context context;
 
 
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -40,8 +43,9 @@ public class AdapterVerAlmacenes extends RecyclerView.Adapter<AdapterVerAlmacene
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public AdapterVerAlmacenes(ArrayList<Almacenes> myDataset) {
+    public AdapterVerAlmacenes(ArrayList<Almacenes> myDataset, Context context) {
 
+        this.context = context;
         mDataset = myDataset;
     }
 
@@ -64,7 +68,10 @@ public class AdapterVerAlmacenes extends RecyclerView.Adapter<AdapterVerAlmacene
         holder.direccionAlmacen.setText(mDataset.get(position).getDireccion());
         holder.ciudadAlmacen.setText(mDataset.get(position).getCiudad());
         holder.campoOculto.setText(mDataset.get(position).getId_almacen());
-        holder.imagenAlmacen.setImageResource(mDataset.get(position).getImagenAlmacen());
+        //holder.imagenAlmacen.setImageResource(mDataset.get(position).getImagenAlmacen());
+        Picasso.with(context)
+                .load(mDataset.get(position).getImagenAlmacen())
+                .into(holder.imagenAlmacen);
 
     }
 

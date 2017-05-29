@@ -11,12 +11,12 @@ public class Almacenes {
     private String direccion;
     private String telefono;
     private String ciudad;
-    private int imagenAlmacen;
+    private String imagenAlmacen;
 
     public Almacenes() {
     }
 
-    public Almacenes(String nombre, String direccion, String telefono, String ciudad, int imagenAlmacen) {
+    public Almacenes(String nombre, String direccion, String telefono, String ciudad, String imagenAlmacen) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -64,11 +64,11 @@ public class Almacenes {
         this.telefono = telefono;
     }
 
-    public int getImagenAlmacen() {
+    public String getImagenAlmacen() {
         return imagenAlmacen;
     }
 
-    public void setImagenAlmacen(int imagenAlmacen) {
+    public void setImagenAlmacen(String imagenAlmacen) {
         this.imagenAlmacen = imagenAlmacen;
     }
 }

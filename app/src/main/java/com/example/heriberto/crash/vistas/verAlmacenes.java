@@ -51,7 +51,7 @@ public class verAlmacenes extends AppCompatActivity {
 
         almacenes = new ArrayList<>();
 
-        mAdapter = new AdapterVerAlmacenes(almacenes);
+        mAdapter = new AdapterVerAlmacenes(almacenes,this);
 
         mRecyclerView.setAdapter(mAdapter);
 

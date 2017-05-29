@@ -40,7 +40,7 @@ public class verProductos extends AppCompatActivity {
 
         productos = new ArrayList<>();
 
-        mAdapter = new AdapterVerProductos(productos);
+        mAdapter = new AdapterVerProductos(productos,this);
 
         mRecyclerView.setAdapter(mAdapter);
 
