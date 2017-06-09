@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.heriberto.crash">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".CrasHapp"
@@ -13,7 +14,10 @@
         android:roundIcon="@mipmap/crashpromo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -56,7 +60,7 @@
             android:label="@string/title_activity_productos_admin"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".vistas.CategoriasAdminActivity"
+            android:name=".vistas.PromocionesAdminActivity"
             android:label="@string/title_activity_categorias_admin"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -69,8 +73,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".vistas.CrearUsuariosActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".vistas.CrearAlmacenesActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".vistas.VerPromoActivity"
+            android:label="@string/title_activity_ver_promo"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

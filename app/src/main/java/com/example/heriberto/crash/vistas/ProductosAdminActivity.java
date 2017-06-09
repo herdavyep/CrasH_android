@@ -28,6 +28,7 @@ public class ProductosAdminActivity extends AppCompatActivity {
     DatabaseReference myRef = myDataBase.getReference(Referencias.ALMACEN_REFERENCIA).child(Referencias.PRODUCTOS_REFERENCIA);
     ArrayList<Productos> productos;
     AdapterAdminProductos mAdapter;
+    String nombre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class ProductosAdminActivity extends AppCompatActivity {
                         Productos producto = snapshot.getValue(Productos.class);
 
                         productos.add(producto);
+                        nombre=producto.getNombre();
 
                 }
                 mAdapter.notifyDataSetChanged();
@@ -67,6 +69,8 @@ public class ProductosAdminActivity extends AppCompatActivity {
 
             }
         });
+
+
 
     }
 
@@ -85,11 +89,17 @@ public class ProductosAdminActivity extends AppCompatActivity {
 
     public void editarProducto (View view){
 
-        //TextView idProducto = (TextView) view.findViewById(R.id.nombreAdminProducto);
+        //editarProductoL();
+    }
+
+    public void editarProductoL (View view){
+
+        TextView idProducto = (TextView) view.findViewById(R.id.nombreAdminProducto);
 
         //String id_almacenSeleccionado = idProducto.getText().toString();
         //String id_almacenSeleccionado = "agua";
         //AlmacenSeleccionado.setId_almacenSeleccionado(id_almacenSeleccionado);
+        AlmacenSeleccionado.setId_almacenSeleccionado(idProducto.getText().toString());
 
         Intent E_P = new Intent(ProductosAdminActivity.this, EditarProductoActivity.class);
         startActivity(E_P);

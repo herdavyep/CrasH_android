@@ -51,7 +51,7 @@
                 android:id="@+id/nombreAlmacenAdmin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:text="TextView"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"

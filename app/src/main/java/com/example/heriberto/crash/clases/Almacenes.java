@@ -16,12 +16,13 @@ public class Almacenes {
     public Almacenes() {
     }
 
-    public Almacenes(String nombre, String direccion, String telefono, String ciudad, String imagenAlmacen) {
+    public Almacenes(String nombre, String direccion, String telefono, String ciudad, String imagenAlmacen, String id_almacen) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.ciudad = ciudad;
         this.imagenAlmacen = imagenAlmacen;
+        this.id_almacen = id_almacen;
     }
 
     public String getId_almacen() {

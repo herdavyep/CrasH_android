@@ -130,14 +130,14 @@ public class verAlmacenes extends AppCompatActivity {
     }
 
 
-    public void IrProductos (View view){
+    public void IrPromo (View view){
 
         TextView idAlmacen = (TextView) view.findViewById(R.id.id_almacenOculto);
 
         String id_almacenSeleccionado = idAlmacen.getText().toString();
         AlmacenSeleccionado.setId_almacenSeleccionado(id_almacenSeleccionado);
 
-        Intent IrLogin = new Intent(verAlmacenes.this, verProductos.class);
+        Intent IrLogin = new Intent(verAlmacenes.this, VerPromoActivity.class);
         //IrLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(IrLogin);
     }

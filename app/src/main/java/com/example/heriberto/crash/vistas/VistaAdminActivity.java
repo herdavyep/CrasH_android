@@ -2,11 +2,8 @@ package com.example.heriberto.crash.vistas;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -32,7 +29,7 @@ public class VistaAdminActivity extends AppCompatActivity {
 
     public void IrAdminCategorias(View view){
 
-        Intent AdC = new Intent(VistaAdminActivity.this, CategoriasAdminActivity.class);
+        Intent AdC = new Intent(VistaAdminActivity.this, PromocionesAdminActivity.class);
         startActivity(AdC);
 
     }

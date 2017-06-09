@@ -26,8 +26,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class EditarProductoActivity extends AppCompatActivity {
 
-    //String idProducto = AlmacenSeleccionado.getId_almacenSeleccionado();
-    String idProducto = "aaaa";
+    String idProducto = AlmacenSeleccionado.getId_almacenSeleccionado();
+    //String idProducto = "frijol";
     FirebaseDatabase myDataBase = FirebaseDatabase.getInstance();
     DatabaseReference myRef = myDataBase.getReference(Referencias.ALMACEN_REFERENCIA).child(Referencias.PRODUCTOS_REFERENCIA);
     //Productos productoE;

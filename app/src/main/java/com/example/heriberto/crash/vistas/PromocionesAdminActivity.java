@@ -9,12 +9,12 @@ import android.view.View;
 
 import com.example.heriberto.crash.R;
 
-public class CategoriasAdminActivity extends AppCompatActivity {
+public class PromocionesAdminActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_categorias_admin);
+        setContentView(R.layout.activity_promociones_admin);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

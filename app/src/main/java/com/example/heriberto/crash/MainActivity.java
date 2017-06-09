@@ -39,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (user.getEmail().equals(admin)){
+        /*if (user.getEmail().equals(admin)){
 
             Intent almacenes = new Intent(MainActivity.this, VistaAdminActivity.class);
             startActivity(almacenes);
             finish();
 
-        }else if (user != null){
+        }else*/ if (user != null){
 
             Intent login = new Intent(MainActivity.this, verAlmacenes.class);
             startActivity(login);

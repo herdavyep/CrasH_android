@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:weightSum="5">
+        android:weightSum="5"
+        >
 
         <LinearLayout
             android:layout_width="0dp"
@@ -76,6 +77,28 @@
                 android:text="TextView"
                 android:textStyle="italic" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    app:srcCompat="@android:drawable/ic_menu_edit"
+                    android:onClick="editarProductoL"/>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    app:srcCompat="@android:drawable/ic_menu_delete" />
+
+            </LinearLayout>
 
 
         </LinearLayout>
@@ -128,28 +151,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/colorPrimary"
-                    app:srcCompat="@android:drawable/ic_menu_edit"
-                    android:onClick="editarProducto"/>
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="@android:color/holo_red_light"
-                    app:srcCompat="@android:drawable/ic_menu_delete" />
-
-            </LinearLayout>
 
         </LinearLayout>
 

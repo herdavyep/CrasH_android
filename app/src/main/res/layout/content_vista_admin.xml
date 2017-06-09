@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:onClick="IrAdminCategorias"
-                android:text="CATEGORIAS"
+                android:text="PROMOCIONES"
                 android:textSize="30dp"
                 android:backgroundTint="#B7BBE0"/>
         </LinearLayout>

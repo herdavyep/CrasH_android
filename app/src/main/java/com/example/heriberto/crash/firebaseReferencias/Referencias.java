@@ -14,6 +14,8 @@ public class Referencias {
 
     final public static String TUTORIAL_REFERENCE = "tutorial";
 
+    final public static String PROMOCIONES_REFERENCE = "promociones";
+
 }
 
 

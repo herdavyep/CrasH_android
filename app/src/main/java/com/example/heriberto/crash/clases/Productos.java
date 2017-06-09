@@ -8,8 +8,9 @@ import android.net.Uri;
 
 public class Productos {
 
-    private String id_almacen;
+    private String id_almacen;//no va ir, va es id promocion
     private String id_producto;
+    private String id_promocion;
     private String nombre;
     private String vencimiento_oferta;
     private String productos_disponibles;
@@ -132,5 +133,13 @@ public class Productos {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public String getId_promocion() {
+        return id_promocion;
+    }
+
+    public void setId_promocion(String id_promocion) {
+        this.id_promocion = id_promocion;
     }
 }

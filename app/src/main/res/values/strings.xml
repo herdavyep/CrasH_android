@@ -97,4 +97,5 @@
     <string name="title_activity_categorias_admin">CategoriasAdminActivity</string>
     <string name="title_activity_usuarios_admin">UsuariosAdminActivity</string>
     <string name="title_activity_almacenes_admin">AlmacenesAdminActivity</string>
+    <string name="title_activity_ver_promo">VerPromoActivity</string>
 </resources>
