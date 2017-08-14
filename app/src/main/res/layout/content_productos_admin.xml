@@ -4,34 +4,36 @@
     android:id="@+id/cardView3"
     android:layout_width="match_parent"
     android:layout_height="185dp"
-    android:layout_margin="3dp">
-
+    android:layout_margin="3dp"
+>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:weightSum="5"
-        >
+        android:onClick="crud_productos_admin"
+        android:weightSum="5">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1.8">
+            android:layout_weight="1.8"
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imagenAdminProducto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"/>
+                android:layout_margin="4dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:layout_weight="1.7"
-            android:orientation="vertical"
-            android:layout_margin="3dp">
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
             <Space
                 android:layout_width="match_parent"
@@ -42,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <Space
                 android:layout_width="match_parent"
@@ -53,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="match_parent"
@@ -71,34 +73,30 @@
                 android:layout_height="5dp" />
 
             <TextView
-                android:id="@+id/vencimientoAdminOferta"
+                android:id="@+id/canxcliente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
                 android:textStyle="italic" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
 
-                <ImageButton
+
+               <!-- <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/colorPrimary"
-                    app:srcCompat="@android:drawable/ic_menu_edit"
-                    android:onClick="editarProductoL"/>
+                    android:onClick="editarProductoL"
+                    app:srcCompat="@android:drawable/ic_menu_edit" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="eliminar_producto"
                     android:backgroundTint="@android:color/holo_red_light"
                     app:srcCompat="@android:drawable/ic_menu_delete" />
-
-            </LinearLayout>
+-->
 
 
         </LinearLayout>
@@ -108,6 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.3"
             android:gravity="right"
+            android:layout_gravity="center"
             android:orientation="vertical">
 
             <Space

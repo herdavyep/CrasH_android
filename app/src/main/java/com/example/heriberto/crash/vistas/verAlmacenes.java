@@ -137,7 +137,7 @@ public class verAlmacenes extends AppCompatActivity {
         String id_almacenSeleccionado = idAlmacen.getText().toString();
         AlmacenSeleccionado.setId_almacenSeleccionado(id_almacenSeleccionado);
 
-        Intent IrLogin = new Intent(verAlmacenes.this, VerPromoActivity.class);
+        Intent IrLogin = new Intent(verAlmacenes.this, verProductos.class);
         //IrLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(IrLogin);
     }

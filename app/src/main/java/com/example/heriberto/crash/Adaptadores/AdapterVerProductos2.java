@@ -15,10 +15,10 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 /**
- * Created by heriberto on 6/05/17.
+ * Created by heriberto on 13/06/17.
  */
 
-public class AdapterAdminProductos extends RecyclerView.Adapter<AdapterAdminProductos.ViewHolder> {
+public class AdapterVerProductos2 extends RecyclerView.Adapter<AdapterVerProductos2.ViewHolder> {
     private ArrayList<Productos> mmDataset;
     private Context context;
 
@@ -27,7 +27,6 @@ public class AdapterAdminProductos extends RecyclerView.Adapter<AdapterAdminProd
         TextView nombreProducto;
         TextView presentacion;
         TextView precio;
-        TextView canxcliente;
         TextView productosDisponibles;
         TextView porcentajeDescuento;
         ImageView imagenProducto;
@@ -35,43 +34,43 @@ public class AdapterAdminProductos extends RecyclerView.Adapter<AdapterAdminProd
         ViewHolder(View v) {
             super(v);
 
-            nombreProducto = (TextView) v.findViewById(R.id.nombreAdminProducto);
-            presentacion = (TextView) v.findViewById(R.id.presentacionAdminProducto);
-            precio = (TextView) v.findViewById(R.id.precioAdminProducto);
-            canxcliente = (TextView) v.findViewById(R.id.canxcliente);
-            productosDisponibles = (TextView) v.findViewById(R.id.productosAdminDisponibles);
-            porcentajeDescuento = (TextView) v.findViewById(R.id.porcentajeAdminDescuento);
-            imagenProducto = (ImageView) v.findViewById(R.id.imagenAdminProducto);
+            nombreProducto = (TextView) v.findViewById(R.id.nombreVerProducto2);
+            presentacion = (TextView) v.findViewById(R.id.presentacionVerProducto2);
+            precio = (TextView) v.findViewById(R.id.precioVerProducto2);
+            productosDisponibles = (TextView) v.findViewById(R.id.productosVerDisponibles2);
+            porcentajeDescuento = (TextView) v.findViewById(R.id.porcentajeVerDescuento2);
+            imagenProducto = (ImageView) v.findViewById(R.id.imagenVerProducto2);
+
         }
     }
 
-    public AdapterAdminProductos(ArrayList<Productos> mmyDataset, Context context) {
+    public AdapterVerProductos2(ArrayList<Productos> mmyDataset, Context context) {
 
         this.context = context;
-        mmDataset = mmyDataset;
+        this.mmDataset = mmyDataset;
     }
 
     @Override
-    public AdapterAdminProductos.ViewHolder onCreateViewHolder(ViewGroup parent,
+    public AdapterVerProductos2.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                              int viewType) {
-
+        // create a new view
         View v = (View) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.content_productos_admin, parent, false);
+                .inflate(R.layout.activity_ver_productos2, parent, false);
+        // set the view's size, margins, paddings and layout parameters
 
 
-        return new AdapterAdminProductos.ViewHolder(v);
+        return new AdapterVerProductos2.ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(AdapterAdminProductos.ViewHolder holder, int position) {
+    public void onBindViewHolder(AdapterVerProductos2.ViewHolder holder, int position) {
 
         holder.nombreProducto.setText(mmDataset.get(position).getNombre());
         holder.presentacion.setText(mmDataset.get(position).getPresentacion());
         holder.precio.setText (mmDataset.get(position).getPrecio()+" pesos");
-        holder.canxcliente.setText("max x cliente: "+mmDataset.get(position).getUnidadesxcliente());
         holder.productosDisponibles.setText(mmDataset.get(position).getProductos_disponibles());
-        holder.porcentajeDescuento.setText(mmDataset.get(position).getPorcentaje_descuento()+"%");
-        //holder.imagenProducto.setImageURI(Uri.parse(mmDataset.get(position).getImagen()));
+        holder.porcentajeDescuento.setText("-"+mmDataset.get(position).getPorcentaje_descuento()+"%");
+        // holder.imagenProducto.setImageURI(Uri.parse(mmDataset.get(position).getImagen()));
         Picasso.with(context)
                 .load(mmDataset.get(position).getImagen())
                 .into(holder.imagenProducto);
@@ -83,6 +82,4 @@ public class AdapterAdminProductos extends RecyclerView.Adapter<AdapterAdminProd
 
         return mmDataset.size();
     }
-
-
 }

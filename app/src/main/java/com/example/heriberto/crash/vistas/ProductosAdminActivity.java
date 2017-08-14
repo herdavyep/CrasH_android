@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.heriberto.crash.Adaptadores.AdapterAdminProductos;
-import com.example.heriberto.crash.Adaptadores.AdapterVerProductos;
 import com.example.heriberto.crash.R;
 import com.example.heriberto.crash.clases.Productos;
 import com.example.heriberto.crash.clasesEstaticas.AlmacenSeleccionado;
@@ -87,22 +89,47 @@ public class ProductosAdminActivity extends AppCompatActivity {
         startActivity(C_P);
     }
 
+
     public void editarProducto (View view){
 
-        //editarProductoL();
-    }
+        TextView nombre = (TextView) view.findViewById(R.id.nombreAdminProducto);
+        //TextView precio = (TextView) view.findViewById(R.id.precioAdminProducto);
 
-    public void editarProductoL (View view){
 
-        TextView idProducto = (TextView) view.findViewById(R.id.nombreAdminProducto);
-
-        //String id_almacenSeleccionado = idProducto.getText().toString();
+        String id_almacenSeleccionado = nombre.getText().toString();
+        //String precioP=precio.getText().toString();
         //String id_almacenSeleccionado = "agua";
-        //AlmacenSeleccionado.setId_almacenSeleccionado(id_almacenSeleccionado);
-        AlmacenSeleccionado.setId_almacenSeleccionado(idProducto.getText().toString());
+        AlmacenSeleccionado.setId_almacenSeleccionado(id_almacenSeleccionado);
+       // AlmacenSeleccionado.setPrecio(precioP);
+
 
         Intent E_P = new Intent(ProductosAdminActivity.this, EditarProductoActivity.class);
         startActivity(E_P);
+    }
+
+
+    public void crud_productos_admin(final View view) {
+
+        PopupMenu popup = new PopupMenu(this, view);
+        popup.getMenuInflater().inflate(R.menu.menu_crud_productos, popup.getMenu());
+
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
+
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.editar_producto:
+                        editarProducto(view);
+                        return true;
+                    case R.id.eliminar_prod:
+                        Toast.makeText(getApplicationContext(),"eliminar",Toast.LENGTH_SHORT).show();
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+        popup.show();
     }
 
 }

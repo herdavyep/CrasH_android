@@ -1,19 +1,16 @@
 package com.example.heriberto.crash.vistas;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.heriberto.crash.R;
-import com.example.heriberto.crash.clases.Almacenes;
 import com.example.heriberto.crash.clases.Productos;
 import com.example.heriberto.crash.clasesEstaticas.AlmacenSeleccionado;
 import com.example.heriberto.crash.edicion.ProductosEditar;
@@ -52,6 +49,47 @@ public class EditarProductoActivity extends AppCompatActivity {
 
                          ProductosEditar.ProductosEditar(producto);
 
+                        final EditText EDnombreProducto = (EditText) findViewById(R.id.nombreEditarProducto);
+                        EDnombreProducto.setText(ProductosEditar.getNombre(),TextView.BufferType.EDITABLE);
+                        //final String nombreProducto = EDnombreProducto.getText().toString();
+
+                        final EditText EDprecioProducto = (EditText) findViewById(R.id.precioEditarProducto);
+                        EDprecioProducto.setText(ProductosEditar.getPrecio(),TextView.BufferType.EDITABLE);
+                        //final String precioProducto = EDprecioProducto.getText().toString();
+                        //int precio2 = Integer.parseInt(precioProducto);
+
+                        final EditText EDpresentacionProducto = (EditText) findViewById(R.id.presentacionEditarProducto);
+                        EDpresentacionProducto.setText(ProductosEditar.getPresentacion(),TextView.BufferType.EDITABLE);
+                        // final String presentacionProducto = EDpresentacionProducto.getText().toString();
+
+                        final EditText EDcantxClien = (EditText) findViewById(R.id.canxclie);
+                        EDcantxClien.setText(ProductosEditar.getUnidxcliente(),TextView.BufferType.EDITABLE);
+                        //final String vencimientoOferta = EDcantxClien.getText().toString();
+
+                        final ImageButton subirImagen = (ImageButton) findViewById(R.id.imagenEditarProducto);
+                        String descargarFoto = ProductosEditar.getImagen();
+
+                        Glide.with(EditarProductoActivity.this)
+                                .load(descargarFoto)
+                                .fitCenter()
+                                .centerCrop()
+                                .into(subirImagen);
+
+                        final EditText EDproductosDisponibles = (EditText) findViewById(R.id.productosEditarDisponibles);
+                        EDproductosDisponibles.setText(ProductosEditar.getProductos_disponibles(),TextView.BufferType.EDITABLE);
+
+                        //final String productosDisponibles = EDproductosDisponibles.getText().toString();
+
+                        final EditText EDporcentajeDescuento = (EditText) findViewById(R.id.porcentajeEditarDescuento);
+                        EDporcentajeDescuento.setText(ProductosEditar.getPorcentaje_descuento(),TextView.BufferType.EDITABLE);
+
+                        // final String porcentajeDescuento = EDporcentajeDescuento.getText().toString();
+
+                        final EditText EDidAlmacen = (EditText) findViewById(R.id.idEditarAlmacen);
+                        EDidAlmacen.setText(ProductosEditar.getId_almacen(),TextView.BufferType.EDITABLE);
+
+                        //final String idAlmacen = EDidAlmacen.getText().toString();
+
                     }
 
                 }
@@ -63,24 +101,12 @@ public class EditarProductoActivity extends AppCompatActivity {
 
             }
         });
-        Toast.makeText(getApplicationContext(),ProductosEditar.getNombre(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),ProductosEditar.getPrecio(), Toast.LENGTH_SHORT).show();
 
 
-        final EditText EDnombreProducto = (EditText) findViewById(R.id.nombreEditarProducto);
-        EDnombreProducto.setText(ProductosEditar.getNombre(),TextView.BufferType.EDITABLE);
-        //final String nombreProducto = EDnombreProducto.getText().toString();
 
-        /*final TextInputEditText EDprecioProducto = (TextInputEditText) findViewById(R.id.precioProducto);
-        final String precioProducto = EDprecioProducto.getText().toString();
-        int precio2 = Integer.parseInt(precioProducto);
 
-        final TextInputEditText EDpresentacionProducto = (TextInputEditText) findViewById(R.id.presentacionProducto);
-        final String presentacionProducto = EDpresentacionProducto.getText().toString();
-
-        final TextInputEditText EDvencimientoOferta = (TextInputEditText) findViewById(R.id.vencimientoOferta);
-        final String vencimientoOferta = EDvencimientoOferta.getText().toString();
-
-        final TextInputEditText EDproductosDisponibles = (TextInputEditText) findViewById(R.id.productosDisponibles);
+        /*final TextInputEditText EDproductosDisponibles = (TextInputEditText) findViewById(R.id.productosDisponibles);
         final String productosDisponibles = EDproductosDisponibles.getText().toString();
 
         final TextInputEditText EDporcentajeDescuento = (TextInputEditText) findViewById(R.id.porcentajeDescuento);
@@ -88,7 +114,6 @@ public class EditarProductoActivity extends AppCompatActivity {
 
         final TextInputEditText EDidAlmacen = (TextInputEditText) findViewById(R.id.idAlmacen);
         final String idAlmacen = EDidAlmacen.getText().toString();*/
-
 
 
     }

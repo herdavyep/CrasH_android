@@ -11,7 +11,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,9 +30,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="vertical"
-                android:layout_weight="6">
+                android:layout_weight="10">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/imagenEditarProducto"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -85,12 +86,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:hintTextAppearance="@style/FloatingLabel">
 
-                    <android.support.design.widget.TextInputEditText
+                    <EditText
                         android:id="@+id/precioEditarProducto"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -98,25 +95,21 @@
                         android:hint="Precio"
                         android:inputType="textPersonName"
                         android:theme="@style/EditText" />
-                </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="vertical"
-                android:layout_weight="2">
+                android:layout_weight="2.4">
 
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:hintTextAppearance="@style/FloatingLabel">
 
-                    <android.support.design.widget.TextInputEditText
+                    <EditText
                         android:id="@+id/presentacionEditarProducto"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -126,25 +119,19 @@
                         android:textSize="20dp"
                         android:theme="@style/EditText" />
 
-                </android.support.design.widget.TextInputLayout>
 
              </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="vertical"
-                android:layout_weight="2">
+                android:layout_weight="2.3">
 
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:hintTextAppearance="@style/FloatingLabel">
-
-                    <android.support.design.widget.TextInputEditText
+                    <EditText
                         android:id="@+id/porcentajeEditarDescuento"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -153,25 +140,20 @@
                         android:inputType="textPersonName"
                         android:theme="@style/EditText" />
 
-                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="vertical"
-                android:layout_weight="2">
+                android:layout_weight="2.3">
 
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:hintTextAppearance="@style/FloatingLabel">
 
-                    <android.support.design.widget.TextInputEditText
+                    <EditText
                         android:id="@+id/productosEditarDisponibles"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -179,25 +161,19 @@
                         android:hint="Productos disponibles"
                         android:inputType="textPersonName"
                         android:theme="@style/EditText" />
-                </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="vertical"
-                android:layout_weight="2">
+                android:layout_weight="2.3">
 
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:hintTextAppearance="@style/FloatingLabel">
-
-                    <android.support.design.widget.TextInputEditText
+                    <EditText
                         android:id="@+id/idEditarAlmacen"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -205,33 +181,26 @@
                         android:hint="Almacen"
                         android:inputType="textPersonName"
                         android:theme="@style/EditText" />
-                </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="vertical"
-                android:layout_weight="2">
+                android:layout_weight="2.3">
 
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:hintTextAppearance="@style/FloatingLabel">
-
                     <android.support.design.widget.TextInputEditText
-                        android:id="@+id/vencimientoEditarOferta"
+                        android:id="@+id/canxclie"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:ems="10"
-                        android:hint="Vencimiento oferta"
+                        android:hint="Cantidad x cliente"
                         android:inputType="textPersonName"
                         android:theme="@style/EditText" />
-                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

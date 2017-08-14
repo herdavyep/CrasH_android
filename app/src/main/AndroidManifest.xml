@@ -80,7 +80,8 @@
         <activity
             android:name=".vistas.VerPromoActivity"
             android:label="@string/title_activity_ver_promo"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".vistas.VerProductos2Activity"></activity>
     </application>
 
 </manifest>

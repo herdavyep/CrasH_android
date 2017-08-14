@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.heriberto.crash.R;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 
 import static com.example.heriberto.crash.R.id.cancel;
 import static com.example.heriberto.crash.R.id.imagenProducto;
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * Created by heriberto on 30/04/17.
@@ -36,7 +38,7 @@ public class AdapterVerProductos extends RecyclerView.Adapter<AdapterVerProducto
         TextView nombreProducto;
         TextView presentacion;
         TextView precio;
-        TextView vencimientoOferta;
+        TextView cantidadPorCliente;
         TextView productosDisponibles;
         TextView porcentajeDescuento;
         ImageView imagenProducto;
@@ -47,10 +49,11 @@ public class AdapterVerProductos extends RecyclerView.Adapter<AdapterVerProducto
             nombreProducto = (TextView) v.findViewById(R.id.nombreVerProducto);
             presentacion = (TextView) v.findViewById(R.id.presentacionVerProducto);
             precio = (TextView) v.findViewById(R.id.precioVerProducto);
-            vencimientoOferta = (TextView) v.findViewById(R.id.vencimientoVerOferta);
+            cantidadPorCliente = (TextView) v.findViewById(R.id.cantidadPorCliente);
             productosDisponibles = (TextView) v.findViewById(R.id.productosVerDisponibles);
-            porcentajeDescuento = (TextView) v.findViewById(R.id.porcentajeVerDescuento);
+
             imagenProducto = (ImageView) v.findViewById(R.id.imagenVerProducto);
+
 
         }
     }
@@ -64,10 +67,8 @@ public class AdapterVerProductos extends RecyclerView.Adapter<AdapterVerProducto
     @Override
     public AdapterVerProductos.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                              int viewType) {
-        // create a new view
         View v = (View) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.content_ver_productos, parent, false);
-        // set the view's size, margins, paddings and layout parameters
 
 
         return new ViewHolder(v);
@@ -78,11 +79,25 @@ public class AdapterVerProductos extends RecyclerView.Adapter<AdapterVerProducto
 
         holder.nombreProducto.setText(mmDataset.get(position).getNombre());
         holder.presentacion.setText(mmDataset.get(position).getPresentacion());
-        holder.precio.setText (mmDataset.get(position).getPrecio()+" pesos");
-        holder.vencimientoOferta.setText("Oferta vence en: "+mmDataset.get(position).getVencimiento_oferta()+" dias");
-        holder.productosDisponibles.setText(mmDataset.get(position).getProductos_disponibles());
-        holder.porcentajeDescuento.setText("-"+mmDataset.get(position).getPorcentaje_descuento()+"%");
+
+        String numero = (mmDataset.get(position).getPrecio());
+
+        if (numero.equals("")){
+
+            holder.precio.setText (mmDataset.get(position).getPorcentaje_descuento()+"%");
+
+
+        }else{
+
+            holder.precio.setText ("$ "+mmDataset.get(position).getPrecio());
+
+        }
+
+
+        holder.cantidadPorCliente.setText("max "+mmDataset.get(position).getUnidadesxcliente()+" x cliente");
+        holder.productosDisponibles.setText("Unid Disp. "+mmDataset.get(position).getProductos_disponibles());
        // holder.imagenProducto.setImageURI(Uri.parse(mmDataset.get(position).getImagen()));
+
         Picasso.with(context)
                 .load(mmDataset.get(position).getImagen())
                 .into(holder.imagenProducto);
@@ -93,6 +108,11 @@ public class AdapterVerProductos extends RecyclerView.Adapter<AdapterVerProducto
     public int getItemCount() {
 
         return mmDataset.size();
+    }
+
+    public static boolean validar(String validar){
+
+        return (validar.equals(""))? true:false;
     }
 }
 

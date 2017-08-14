@@ -173,11 +173,11 @@
                 app:hintTextAppearance="@style/FloatingLabel">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/vencimientoOferta"
+                    android:id="@+id/cantidadxcliente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Vencimiento oferta"
+                    android:hint="Cantidad x cliente"
                     android:inputType="number"
                     android:theme="@style/EditText"/>
             </android.support.design.widget.TextInputLayout>

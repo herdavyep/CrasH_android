@@ -11,19 +11,25 @@ public class ProductosEditar {
     private static String id_almacen;
     private static String id_producto;
     private static String nombre;
-    private static String vencimiento_oferta;
+    private static String unidxcliente;
     private static String productos_disponibles;
     private static String presentacion;
     private static String porcentaje_descuento;
     //private int imagenProducto;
     private static String imagen;
-    private static int precio;
+    private static String precio;
     private static boolean estado;
 
     public static void ProductosEditar(Productos producto){
 
         setNombre(producto.getNombre());
-
+        setPrecio(producto.getPrecio());
+        setPorcentaje_descuento(producto.getPorcentaje_descuento());
+        setImagen(producto.getImagen());
+        setPresentacion(producto.getPresentacion());
+        setProductos_disponibles(producto.getProductos_disponibles());
+        setId_almacen(producto.getId_almacen());
+        setUnidxcliente(producto.getUnidadesxcliente());
 
 
     }
@@ -36,11 +42,11 @@ public class ProductosEditar {
         id_producto = mid_producto;
     }
 
-    public static int getPrecio() {
+    public static String getPrecio() {
         return precio;
     }
 
-    public static void setPrecio(int mprecio) {
+    public static void setPrecio(String mprecio) {
         precio = mprecio;
     }
 
@@ -60,12 +66,12 @@ public class ProductosEditar {
         nombre = mnombre;
     }
 
-    public static String getVencimiento_oferta() {
-        return vencimiento_oferta;
+    public static String getUnidxcliente() {
+        return unidxcliente;
     }
 
-    public static void setVencimiento_oferta(String mvencimiento_oferta) {
-        vencimiento_oferta = mvencimiento_oferta;
+    public static void setUnidxcliente(String mvencimiento_oferta) {
+        unidxcliente = mvencimiento_oferta;
     }
 
     public static String getProductos_disponibles() {

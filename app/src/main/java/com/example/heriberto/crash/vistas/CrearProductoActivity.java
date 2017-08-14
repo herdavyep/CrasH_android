@@ -21,8 +21,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.net.URI;
-
 public class CrearProductoActivity extends AppCompatActivity {
 
     FirebaseDatabase myDataBase = FirebaseDatabase.getInstance();
@@ -110,8 +108,8 @@ public class CrearProductoActivity extends AppCompatActivity {
         final TextInputEditText EDpresentacionProducto = (TextInputEditText) findViewById(R.id.presentacionProducto);
         final String presentacionProducto = EDpresentacionProducto.getText().toString();
 
-        final TextInputEditText EDvencimientoOferta = (TextInputEditText) findViewById(R.id.vencimientoOferta);
-        final String vencimientoOferta = EDvencimientoOferta.getText().toString();
+        final TextInputEditText EDcantidadxcliente = (TextInputEditText) findViewById(R.id.cantidadxcliente);
+        final String cantidadxcliente = EDcantidadxcliente.getText().toString();
 
         final TextInputEditText EDproductosDisponibles = (TextInputEditText) findViewById(R.id.productosDisponibles);
         final String productosDisponibles = EDproductosDisponibles.getText().toString();
@@ -122,7 +120,7 @@ public class CrearProductoActivity extends AppCompatActivity {
         final TextInputEditText EDidAlmacen = (TextInputEditText) findViewById(R.id.idAlmacen);
         final String idAlmacen = EDidAlmacen.getText().toString();
 
-        Productos producto = new Productos(nombreProducto,precio2,vencimientoOferta,productosDisponibles,presentacionProducto,porcentajeDescuento,idAlmacen,urlFoto);
+        Productos producto = new Productos(nombreProducto,precioProducto, cantidadxcliente,productosDisponibles,presentacionProducto,porcentajeDescuento,idAlmacen,urlFoto);
         //ProductosEditar producto = new ProductosEditar(nombreProducto,precioProducto,presentacionProducto);
 
         myRef.child(Referencias.PRODUCTOS_REFERENCIA).push().setValue(producto);

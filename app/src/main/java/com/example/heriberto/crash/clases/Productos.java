@@ -1,7 +1,5 @@
 package com.example.heriberto.crash.clases;
 
-import android.net.Uri;
-
 /**
  * Created by heriberto on 11/04/17.
  */
@@ -12,13 +10,13 @@ public class Productos {
     private String id_producto;
     private String id_promocion;
     private String nombre;
-    private String vencimiento_oferta;
+    private String unidadesxcliente;
     private String productos_disponibles;
     private String presentacion;
     private String porcentaje_descuento;
     //private int imagenProducto;
     private String imagen;
-    private int precio;
+    private String precio;
     private boolean estado;
 
 
@@ -26,10 +24,10 @@ public class Productos {
     public Productos() {
     }
 
-    public Productos(String nombre, int precio, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento, String id_almacen, String imagen) {
+    public Productos(String nombre, String precio, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento, String id_almacen, String imagen) {
         this.nombre = nombre;
         this.precio = precio;
-        this.vencimiento_oferta = vencimiento_oferta;
+        this.unidadesxcliente = vencimiento_oferta;
         this.productos_disponibles = productos_disponibles;
         this.presentacion = presentacion;
         this.porcentaje_descuento = porcentaje_descuento;
@@ -37,9 +35,9 @@ public class Productos {
         this.imagen = imagen;
     }
 
-    public Productos(String nombre, int precio, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento /*, int imagenProducto*/) {
+    public Productos(String nombre, String precio, String vencimiento_oferta, String productos_disponibles, String presentacion, String porcentaje_descuento /*, int imagenProducto*/) {
         this.nombre = nombre;
-        this.vencimiento_oferta = vencimiento_oferta;
+        this.unidadesxcliente = vencimiento_oferta;
         this.productos_disponibles = productos_disponibles;
         this.presentacion = presentacion;
         this.porcentaje_descuento = porcentaje_descuento;
@@ -55,11 +53,11 @@ public class Productos {
         this.id_producto = id_producto;
     }
 
-    public int getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 
@@ -79,12 +77,12 @@ public class Productos {
         this.nombre = nombre;
     }
 
-    public String getVencimiento_oferta() {
-        return vencimiento_oferta;
+    public String getUnidadesxcliente() {
+        return unidadesxcliente;
     }
 
-    public void setVencimiento_oferta(String vencimiento_oferta) {
-        this.vencimiento_oferta = vencimiento_oferta;
+    public void setUnidadesxcliente(String unidadesxcliente) {
+        this.unidadesxcliente = unidadesxcliente;
     }
 
     public String getProductos_disponibles() {
